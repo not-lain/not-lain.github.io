@@ -1,312 +1,354 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Portfolio website of Hafedh Hichri" />
+    <meta
+      name="keywords"
+      content="fullstack developer, fullstack, portfolio, personal website, HTML, CSS, SQL, Python, C++, R, EXCEL, APACHE CASSANDRA"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.14.0/devicon.min.css"
+    />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://avatars.githubusercontent.com/u/70411813"
+    />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5008414277567291"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/acc78e4cf0.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./css/index.css" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portfolio website of Hafedh Hichri" />
-  <meta name="keywords" content="fullstack developer, fullstack, portfolio,
-			personal website, HTML, CSS, SQL, Python, C++, R, EXCEL, APACHE CASSANDra" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.14.0/devicon.min.css" />
-  <link rel="icon" type="image/x-icon" href="https://avatars.githubusercontent.com/u/70411813">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5008414277567291"
-    crossorigin="anonymous"></script>
-  <script src="https://kit.fontawesome.com/fa62c117c7.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="./css/index.css" />
+    <title>Hafedh Hichri - Fullstack Developer</title>
+  </head>
 
-  <title>Hafedh Hichri</title>
-</head>
+  <body class="body-dark">
+    <header id="top">
+      <a class="icon-border header-title" href="#resume">HH</a>
+      <nav>
+        <ul id="nav">
+          <li><a href="#about" class="link">About</a></li>
+          <li><a href="#project" class="link">Projects</a></li>
+          <li><a href="#stack" class="link">Tech Stack</a></li>
+          <li><a href="#contact" class="link">Contact</a></li>
+        </ul>
+        <button aria-label="Toggle theme" id="toggleTheme">
+          <i aria-hidden="true" class="icon-normal fas fa-moon"></i>
+        </button>
+        <button aria-label="Toggle navbar">
+          <i aria-hidden="true" class="icon-normal fas fa-bars"></i>
+        </button>
+      </nav>
+    </header>
 
-<body class="body-dark">
-  <header id="top">
-    <a class="icon-border header-title" href="#resume">HH</a>
-    <nav>
-      <ul id="nav">
+    <div class="hero">
+      <h1>
+        Hi. I am
+        <span class="hero-name">Hafedh</span>
+        <span class="hero-name">Hichri</span>
+      </h1>
+
+      <div class="hero-about">
+        <p>
+          A computer science graduate with a passion for AI and open source
+          contributions.
+        </p>
+
+        <a
+          class="resume"
+          href="https://drive.google.com/file/d/1becReKtXSgThmKcyWDisnNItfSirdHyN/view?usp=sharing"
+          target="_blank"
+        >
+          <span class="btn">Resume</span>
+        </a>
+      </div>
+    </div>
+
+    <section id="about" class="about">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-content">
+        <p>
+          I'm a passionate fullstack developer with a strong interest in
+          artificial intelligence and machine learning. My journey in computer
+          science has led me to explore various technologies and contribute to
+          open-source projects.
+        </p>
+        <p>
+          When I'm not coding, you can find me exploring new technologies,
+          contributing to open-source projects, or sharing my knowledge through
+          technical blogs and tutorials.
+        </p>
+      </div>
+    </section>
+
+    <section id="project" class="project">
+      <h2 class="section-title">Projects</h2>
+
+      <div class="project-container">
+        <div class="project-content">
+          <h3>Siglip Tagger</h3>
+          <p>A customized pipeline for image tagging for diffusion tasks</p>
+          <ul class="project-skill">
+            <li>transformers</li>
+            <li>gradio</li>
+          </ul>
+          <ul class="project-link">
+            <li>
+              <a
+                href="https://huggingface.co/spaces/not-lain/SigLIP_Tagger/tree/main"
+                aria-label="Source code"
+                title="source code"
+                rel="noopener"
+                target="_blank"
+                ><i class="icon-border fas fa-code"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="project-container">
+        <div class="project-content">
+          <h3>Deepfake Detection</h3>
+          <p>A customized pipeline for deepfake detection and localization</p>
+          <ul class="project-skill">
+            <li>transformers</li>
+            <li>OpenCV</li>
+            <li>Pillow</li>
+            <li>facenet-pytorch</li>
+            <li>Torch</li>
+            <li>grad-cam</li>
+          </ul>
+          <ul class="project-link">
+            <li>
+              <a
+                href="https://huggingface.co/spaces/not-lain/deepfake-detection"
+                aria-label="Source code"
+                title="source code"
+                rel="noopener"
+                target="_blank"
+                ><i class="icon-border fas fa-code"></i
+              ></a>
+            </li>
+            <li>
+              <a
+                href="https://huggingface.co/not-lain/deepfake"
+                aria-label="Model"
+                title="model"
+                rel="noopener"
+                target="_blank"
+              >
+                <i
+                  aria-hidden="true"
+                  class="icon-border fas fa-external-link-alt"
+                ></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="project-container">
+        <div class="project-content">
+          <h3>RMBG-1-4 Architecture</h3>
+          <p>A HuggingFace-friendly architecture for background removal</p>
+          <ul class="project-skill">
+            <li>transformers</li>
+            <li>Pillow</li>
+            <li>Torch</li>
+          </ul>
+          <ul class="project-link">
+            <li>
+              <a
+                href="https://huggingface.co/briaai/RMBG-1.4/discussions/21"
+                aria-label="Source code"
+                title="source code"
+                rel="noopener"
+                target="_blank"
+              >
+                <i
+                  aria-hidden="true"
+                  class="icon-border fas fa-external-link-alt"
+                ></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="project-container">
+        <div class="project-content">
+          <h3>RAG Chatbot</h3>
+          <p>A RAG pipeline with a chatbot feature</p>
+          <ul class="project-skill">
+            <li>transformers</li>
+            <li>Torch</li>
+            <li>sentence_transformers</li>
+          </ul>
+          <ul class="project-link">
+            <li>
+              <a
+                href="https://not-lain-rag-chatbot.hf.space"
+                aria-label="Demo"
+                title="demo"
+                rel="noopener"
+                target="_blank"
+              >
+                <i
+                  aria-hidden="true"
+                  class="icon-border fas fa-external-link-alt"
+                ></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="stack" class="stack">
+      <h2 class="section-title">Tech Stack</h2>
+      <div class="stack-container">
+        <div class="tech-container">
+          <i class="devicon-html5-plain colored"></i>
+          HTML
+        </div>
+        <div class="tech-container">
+          <i class="devicon-css3-plain colored"></i>
+          CSS
+        </div>
+        <div class="tech-container">
+          <i class="devicon-javascript-plain colored"></i>
+          JavaScript
+        </div>
+        <div class="tech-container">
+          <img
+            height="48px"
+            width="48px"
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg"
+          />
+          <br />
+          OpenCV
+        </div>
+        <div class="tech-container">
+          <i class="devicon-bootstrap-plain colored"></i>
+          Bootstrap
+        </div>
+        <div class="tech-container">
+          <i class="devicon-java-plain-wordmark colored"></i>
+          Java
+        </div>
+        <div class="tech-container">
+          <i class="devicon-mysql-plain colored"></i>
+          MySQL
+        </div>
+        <div class="tech-container">
+          <i class="devicon-python-plain colored"></i>
+          Python
+        </div>
+        <div class="tech-container">
+          <i class="devicon-tensorflow-original colored"></i>
+          TensorFlow
+        </div>
+        <div class="tech-container">
+          <img
+            height="48px"
+            width="48px"
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg"
+          />
+          <br />
+          PyTorch
+        </div>
+        <div class="tech-container">
+          <img
+            height="48px"
+            width="48px"
+            src="https://seeklogo.com/images/G/gradio-icon-logo-908AE1836C-seeklogo.com.png"
+          />
+          <br />
+          Gradio
+        </div>
+        <div class="tech-container">
+          <img
+            height="48px"
+            width="48px"
+            src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo.png"
+          />
+          <br />
+          Transformers
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2 class="section-title">Get in touch</h2>
+      <ul>
         <li>
-          <a href="#project" class="link">Projects</a>
+          <a href="mailto:hhichri60@gmail.com">
+            <span class="btn">
+              <i aria-hidden="true" class="fas icon fa-envelope"></i>Email
+            </span>
+          </a>
         </li>
         <li>
-          <a href="#stack" class="link">Tech Stack</a>
+          <a
+            href="https://github.com/not-lain"
+            aria-label="Github"
+            target="_blank"
+          >
+            <span class="btn">
+              <i aria-hidden="true" class="fab icon fa-github"></i>
+              Github
+            </span>
+          </a>
         </li>
         <li>
-          <a href="#contact" class="link">Contact</a>
+          <a
+            href="https://www.linkedin.com/in/hafedh-hichri/"
+            aria-label="Linkedin"
+            target="_blank"
+          >
+            <span class="btn">
+              <i aria-hidden="true" class="fab icon fa-linkedin"></i>
+              Linkedin
+            </span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://www.huggingface.co/not-lain"
+            aria-label="HuggingFace"
+            target="_blank"
+          >
+            <span class="btn"> 🤗 HuggingFace </span>
+          </a>
         </li>
       </ul>
-      <button aria-label="Toggle theme" id="toggleTheme">
-        <i aria-hidden="true" class="icon-normal fas fa-moon"></i>
-      </button>
-      <button aria-label="Toggle navbar">
-        <i aria-hidden="true" class="icon-normal fas fa-bars"></i>
-      </button>
-    </nav>
-  </header>
+    </section>
 
-  <div class="hero">
-    <h1>
-      Hi. I am
-      <span class="hero-name">Hafedh</span>
-      <span class="hero-name">Hichri</span>
-    </h1>
-
-    <div class="hero-about">
-      <p>
-        A computer science graduate with passion for AI and open source contributions.
-      </p>
-
-      <a class="resume" href="https://drive.google.com/file/d/1becReKtXSgThmKcyWDisnNItfSirdHyN/view?usp=sharing"
-        target="_blank">
-        <!-- the resume link will be dropped here -->
-        <span class="btn">Resume</span>
-      </a>
-    </div>
-    <br>
-  </div>
-  <section id="resume" class="resume">
-    <div class="project-container">
-      <iframe src="https://not-lain-resume-qa.hf.space" frameborder="0" width="900" height="1100"></iframe>
-      <div class="project-content">
-        <h3>do you want ask me a question</h3>
-        <p>want to interact with my resume ? <br> you can ask me specific questions here <br>👈 </p>
-        <ul class="project-skill">
-          <li>transformers</li>
-          <li>gradio</li>
-        </ul>
-        <ul class="project-link">
-          <li>
-            <a href="https://huggingface.co/spaces/not-lain/resume-qa" aria-label="Source code" title="source code"
-              rel="noopener" target="_blank">
-              <i class="icon-border fas fa-code"></i></a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  </div>
-
-  <section id="project" class="project">
-    <h2 class="section-title">Projects</h2>
-
-    <div class="project-container">
-      <iframe src="https://not-lain-siglip-tagger.hf.space" frameborder="0" width="900" height="1200"></iframe>
-
-
-      <div class="project-content">
-        <h3>Siglip Tagger</h3>
-        <p>
-          a customized pipeline for image tagging for diffusion tasks
-        </p>
-
-        <ul class="project-skill">
-          <li>transformers</li>
-          <li>gradio</li>
-        </ul>
-
-        <ul class="project-link">
-          <li>
-            <a href="https://huggingface.co/spaces/not-lain/SigLIP_Tagger/tree/main" aria-label="Source code"
-              title="source code" rel="noopener" target="_blank"><i class="icon-border fas fa-code"></i></a>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="project-container">
-      <iframe src="https://not-lain-deepfake-detection.hf.space" frameborder="0" width="900" height="1800"></iframe>
-
-      <div class="project-content">
-        <h3>deepfake</h3>
-        <p>
-          a customized pipeline for deepfake detection and localisation
-        </p>
-
-        <ul class="project-skill">
-          <li>transformers</li>
-          <li>OpenCV</li>
-          <li>Pillow</li>
-          <li>facenet-pytorch</li>
-          <li>Torch</li>
-          <li>grad-cam</li>
-        </ul>
-
-        <ul class="project-link">
-          <li>
-            <a href="https://huggingface.co/spaces/not-lain/deepfake-detection" aria-label="Source code"
-              title="source code" rel="noopener" target="_blank"><i class="icon-border fas fa-code"></i></a>
-          </li>
-          <li>
-            <a href="https://huggingface.co/not-lain/deepfake" aria-label="Source code" title="source code"
-              rel="noopener" target="_blank">
-              <i aria-hidden="true" class="icon-border fas fa-external-link-alt"></i></a>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="project-container">
-      <iframe src="https://not-lain-rmbg-1-4-but-with-transformers-library.hf.space" frameborder="0" width="900"
-        height="900"></iframe>
-
-      <div class="project-content">
-        <h3>RMBG-1-4 architecture</h3>
-        <p>
-          A huggingface friendly architecture for background removal
-        </p>
-
-        <ul class="project-skill">
-          <li>transformers</li>
-          <li>Pillow</li>
-          <li>Torch</li>
-        </ul>
-
-        <ul class="project-link">
-          <li>
-            <a href="https://huggingface.co/briaai/RMBG-1.4/discussions/21" aria-label="Source code" title="source code"
-              rel="noopener" target="_blank">
-              <i aria-hidden="true" class="icon-border fas fa-external-link-alt"></i></a>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="project-container">
-      <iframe src="https://not-lain-rag-chatbot.hf.space" frameborder="0" width="900" height="1100"></iframe>
-
-      <div class="project-content">
-        <h3>rag chatbot</h3>
-        <p>
-          a rag pipeline with a chatbot feature
-        </p>
-
-        <ul class="project-skill">
-          <li>transformers</li>
-          <li>Torch</li>
-          <li>sentence_transformers</li>
-        </ul>
-
-        <ul class="project-link">
-          <li>
-            <a href="https://not-lain-rag-chatbot.hf.space" aria-label="Source code"
-              title="source code" rel="noopener" target="_blank">
-              <i aria-hidden="true" class="icon-border fas fa-external-link-alt"></i></a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section id="stack" class="stack">
-    <h2 class="section-title">Tech Stack</h2>
-    <div class="stack-container">
-      <div class="tech-container">
-        <i class="devicon-html5-plain colored"></i>
-        HTML
-      </div>
-      <div class="tech-container">
-        <i class="devicon-css3-plain colored"></i>
-        CSS
-      </div>
-      <div class="tech-container">
-        <img height="48px" width="48px"
-          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg" />
-        <br>
-        OpenCV
-      </div>
-      <div class="tech-container">
-        <i class="devicon-bootstrap-plain colored"></i>
-        bootstrap
-      </div>
-
-      <div class="tech-container">
-        <i class="devicon-java-plain-wordmark colored"></i>
-
-        Java
-      </div>
-      <div class="tech-container">
-        <i class="devicon-mysql-plain colored"></i>
-
-        Mysql
-      </div>
-      <div class="tech-container">
-        <i class="devicon-python-plain colored"></i>
-
-        Python
-      </div>
-      <div class="tech-container">
-        <i class="devicon-tensorflow-original colored"></i>
-
-        Tensorflow
-      </div>
-      <div class="tech-container">
-        <img height="48px" width="48px"
-          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" />
-        <br>
-        Torch
-      </div>
-      <div class="tech-container">
-        <img height="48px" width="48px"
-          src="https://seeklogo.com/images/G/gradio-icon-logo-908AE1836C-seeklogo.com.png" />
-        <br>
-        gradio
-      </div>
-      <div class="tech-container">
-        <img height="48px" width="48px"
-          src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo.png" />
-        <br>
-        transformers
-      </div>
-
-    </div>
-  </section>
-
-  <section id="contact" class="contact">
-    <h2 class="section-title">Get in touch</h2>
-
-    <ul>
-      <li>
-        <a href="mailto:hhichri60@gmail.com">
-          <span class="btn">
-            <i aria-hidden="true" class="fas icon fa-envelope"></i>Email
-          </span>
+    <div class="scroll-container">
+      <div aria-label="Scroll up" class="scroll-up">
+        <a href="#top">
+          <i aria-hidden="true" class="fas fa-arrow-up"></i>
         </a>
-      </li>
-
-      <li>
-        <a href="https://github.com/not-lain" aria-label="Github" target="_blank">
-          <span class="btn">
-            <i aria-hidden="true" class="fab icon fa-github"></i>
-            Github
-          </span>
-        </a>
-      </li>
-
-      <li>
-        <a href="https://www.linkedin.com/in/hafedh-hichri/" aria-label="Linkedin" target="_blank">
-          <span class="btn">
-            <i aria-hidden="true" class="fab icon fa-linkedin"></i>
-            Linkedin
-          </span>
-        </a>
-      </li>
-      <li>
-        <a href="https://www.huggingface.co/not-lain" aria-label="HuggingFace" target="_blank">
-          <span class="btn">
-            🤗
-            HuggingFace
-          </span>
-      </li>
-    </ul>
-  </section>
-  <br>
-  <br>
-
-  <div class="scroll-container">
-    <div aria-label="Scroll up" class="scroll-up">
-      <a href="#top">
-        <i aria-hidden="true" class="fas fa-arrow-up"></i>
-      </a>
+      </div>
     </div>
-  </div>
-  <script src="./js/index.js"></script>
-</body>
-
+    <script src="./js/index.js"></script>
+  </body>
+  <footer>
+    <small> &copy; made by the open source community </small>
+  </footer>
 </html>
