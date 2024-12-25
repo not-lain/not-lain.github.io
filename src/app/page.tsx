@@ -1,4 +1,5 @@
 import React from "react";
+import { SiHuggingface } from "react-icons/si";
 import { GitHubLogoIcon, InstagramLogoIcon, TwitterLogoIcon } from "@radix-ui/react-icons";
 import { ChevronRight, MailPlus, MouseIcon, Terminal } from "lucide-react";
 // import Image from "next/image";
@@ -21,28 +22,31 @@ const page = () => {
                     Hello World
                 </span>
                 <div className="flex items-center gap-3">
-                    <h1 className="text-4xl flex gap-12 items-center flex-row md:text-7xl lg:text-8xl font-bold ">Hey, I&apos;m Shiva</h1>
+                    <h1 className="text-4xl flex gap-12 items-center flex-row md:text-7xl lg:text-8xl font-bold ">Hey, I&apos;m Hafedh</h1>
                     {/* <Image src={clock} alt="coffeCup" className="w-12 rotate-12 h-12 lg:w-16 lg:h-16" /> */}
                 </div>
                 <h1 className=" font-bold lg:text-3xl">
                     I am a <TypingAnimation />
                 </h1>
                 <p className=" opacity-80 text-sm lg:text-xl lg:mb-2 font-medium">
-                    I develop open-source <span className="  text-blue-500 uppercase font-bold">full-stack</span> apps/tools and occasionally take on <span className=" uppercase text-blue-500 font-bold tracking-wider">freelance</span> projects.
+                    I contribute to <span className=" text-[#FF9D00] uppercase font-bold">open-source</span> libraries/repos and occasionally take on <span className=" uppercase text-[#FFD21E] font-bold tracking-wider">AI projects</span> projects.
                 </p>
                 <div className="flex items-center gap-3 lg:gap-6 flex-wrap">
                     <CopyCmd />
-                    <a href="https://github.com/shivabhattacharjee" target="_blank" rel="noopener noreferrer">
+                    <a href="https://github.com/not-lain" target="_blank" rel="noopener noreferrer">
                         <GitHubLogoIcon className=" h-6 lg:h-10 w-8 lg:w-8 duration-200 hover:-translate-y-2 cursor-pointer" />
                     </a>
-                    <a href="https://twitter.com/sh17va" target="_blank" rel="noopener noreferrer">
+                    <a href="https://twitter.com/not_so_lain" target="_blank" rel="noopener noreferrer">
                         <TwitterLogoIcon className=" h-6 lg:h-10 w-8 lg:w-8 duration-200 hover:-translate-y-2 cursor-pointer" />
                     </a>
-                    <a href="mailto:itsshivahere@outlook.com?body=Hello" target="_blank" rel="noopener noreferrer">
+                    <a href="mailto:hhichri60@@gmail.com?body=Hello" target="_blank" rel="noopener noreferrer">
                         <MailPlus className=" h-6 lg:h-10 w-8 lg:w-8 duration-200 hover:-translate-y-2 cursor-pointer" />
                     </a>
-                    <a href="https://instagram.com/shivahereig" target="_blank" rel="noopener noreferrer">
+                    <a href="https://instagram.com/not_so_lain" target="_blank" rel="noopener noreferrer">
                         <InstagramLogoIcon className=" h-6 lg:h-10 w-8 lg:w-8 duration-200 hover:-translate-y-2 cursor-pointer" />
+                    </a>
+                    <a href="https://huggingface.com/not-lain" target="_blank" rel="noopener noreferrer">
+                        <SiHuggingface className=" h-6 lg:h-10 w-8 lg:w-8 duration-200 hover:-translate-y-2 cursor-pointer" />
                     </a>
                 </div>
 
@@ -69,7 +73,7 @@ const page = () => {
                     <div className="flex gap-8 w-full justify-center items-center pl-4 pr-4 flex-col pb-7 md:pb-0">
                         <div className="mt-6 relative place-items-center grid grid-cols-1 md:grid-cols-2 gap-8">
                             {projectArray
-                                .filter((_, index) => index === 0 || index === 5)
+                                .filter((_, index) => index === 0 || index === 3)
                                 .map((item, index) => (
                                     <Card item={item} index={index} key={index} />
                                 ))}

@@ -6,13 +6,10 @@ const HelpCommand = () => {
             <h1 className="text-sm font-medium opacity-70">Available commands:</h1>
             <ul className="text-sm font-mono font-semibold tracking-wide flex flex-col gap-2">
                 <li className=" mt-2 flex gap-2 items-center">
-                    shiva: <span className="opacity-70 text-xs">Displays a brief info about me</span>
+                    hafedh: <span className="opacity-70 text-xs">Displays a brief info about me</span>
                 </li>
                 <li className=" mt-2 flex gap-2 items-center">
                     echo: <span className=" opacity-70 text-xs">prints whatever written after echo</span>
-                </li>
-                <li className=" mt-2 flex gap-2 items-center">
-                    quibble: <span className=" opacity-70 text-xs">Navigatestext- to quibble website an ai chatbot made by me</span>
                 </li>
                 <li className="flex items-center gap-2">
                     proj: <span className="  opacity-70 text-xs">navigates to project page</span>

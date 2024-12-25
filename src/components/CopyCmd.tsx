@@ -6,7 +6,7 @@ import { toast } from "@/components/ui/use-toast";
 const CopyCmd = () => {
     const [copied, setCopied] = useState(false);
     const handleCopyToClipboard = () => {
-        const textToCopy = "npx shivadev";
+        const textToCopy = "py hafedh";
         navigator.clipboard
             .writeText(textToCopy)
             .then(() => {
@@ -32,7 +32,7 @@ const CopyCmd = () => {
     return (
         <div onClick={handleCopyToClipboard} className="homepagecontactbtn">
             {copied ? <ClipboardCheck /> : <Clipboard />}
-            npx shivadev
+            py hafedh
         </div>
     );
 };

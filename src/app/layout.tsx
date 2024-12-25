@@ -11,10 +11,11 @@ import { Toaster } from "@/components/ui/toaster";
 const inter = Roboto({ weight: "400", style: "normal", subsets: ["greek"] });
 
 export const metadata: Metadata = {
-    title: "Home - Shiva ",
-    description: "Hello there I am Shiva a full stack developer and I love to build products that make people's life easier.",
+    title: "Home - Hafedh ",
+    description: "Hello there I am Hafedh a machine learning engineer and a HuggingFace Fellow",
+    metadataBase: new URL("https://not-lain.github.io/"),
     openGraph: {
-        images: "https://www.theshiva.xyz/_next/static/media/banner.e6bde3c9.png",
+        images: "https://drive.google.com/uc?id=115jAg4IPD_ElHcYuS3kLoPOHhWBq0RF2",
     },
 };
 

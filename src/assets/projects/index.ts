@@ -1,9 +1,13 @@
 import animetriximg from "./animetrix.jpeg";
+import ImageRAG from "./charmander.webp";
 import muxikimg from "./muxik.png";
+import nobg from "./nobg.webp";
+import mixin from "./pytorchmodelhubmixin.png";
 import quibbleimg from "./quibble.jpeg";
+import rag from "./rag.svg";
 import recordify from "./recordify.png";
 import sso from "./sso.jpeg";
 import synthiaimg from "./synthia.webp";
 import trimImg from "./trim.png";
 import wasteeasy from "./wastelogo.png";
-export { animetriximg, quibbleimg, synthiaimg, muxikimg, recordify, trimImg, wasteeasy, sso };
+export { animetriximg, quibbleimg, synthiaimg, muxikimg, recordify, trimImg, wasteeasy, sso, rag, mixin, ImageRAG, nobg };

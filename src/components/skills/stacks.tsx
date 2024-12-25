@@ -6,7 +6,7 @@ import Image from "next/image";
 
 import ConnectionLine from "./connection-line";
 
-import { docker, git, go, mongodb, nextjs, nodejs, postgresssql, python, react, redux, rust, socketio, tailwind, ts } from "@/assets/skills/index";
+import { docker, git, gradio, hf, mongodb, nextjs, nodejs, postgresssql, python, pytorch, react, tailwind, tensorflow, ts } from "@/assets/skills/index";
 import { cn } from "@/lib/utils";
 
 type TechBoxProps = {
@@ -115,29 +115,29 @@ const renderPins = (pinCount: number, idPrefix: string, refs: React.RefObject<HT
 export const techs = {
     stage1: [
         {
-            title: "React",
-            image: react,
-            color: "#61DAFB",
+            title: "Python",
+            image: python,
+            color: "#27AACD",
         },
         {
-            title: "Next.js",
-            image: nextjs,
-            color: "#bdbdbd",
+            title: "Tensorflow",
+            image: tensorflow,
+            color: "#ff6f00",
         },
         {
-            title: "Typescript",
-            image: ts,
-            color: "#007acc",
+            title: "HuggingFace",
+            image: hf,
+            color: "#00acd7",
         },
         {
-            title: "Tailwind CSS",
-            image: tailwind,
-            color: "#38b2ac",
+            title: "PyTorch",
+            image: pytorch,
+            color: "#ee4c2c",
         },
         {
-            title: "Rust",
-            image: rust,
-            color: "#bf0477",
+            title: "Gradio",
+            image: gradio,
+            color: "#f58220",
         },
     ],
     stage2: [
@@ -166,29 +166,29 @@ export const techs = {
     ],
     stage4: [
         {
+            title: "Tailwind CSS",
+            image: tailwind,
+            color: "#38b2ac",
+        },
+        {
+            title: "Typescript",
+            image: ts,
+            color: "#007acc",
+        },
+        {
             title: "NodeJS",
             image: nodejs,
             color: "#83CD29",
         },
         {
-            title: "Redux",
-            image: redux,
-            color: "#764abc",
+            title: "React",
+            image: react,
+            color: "#61DAFB",
         },
         {
-            title: "Socket.io",
-            image: socketio,
-            color: "#b52d3f",
-        },
-        {
-            title: "Python",
-            image: python,
-            color: "#27AACD",
-        },
-        {
-            title: "Go",
-            image: go,
-            color: "#00acd7",
+            title: "Next.js",
+            image: nextjs,
+            color: "#bdbdbd",
         },
     ],
 };
