@@ -29,7 +29,7 @@ const page = () => {
                     I am a <TypingAnimation />
                 </h1>
                 <p className=" opacity-80 text-sm lg:text-xl lg:mb-2 font-medium">
-                    I contribute to <span className=" text-[#FF9D00] uppercase font-bold">open-source</span> libraries/repos and occasionally take on <span className=" uppercase text-[#FFD21E] font-bold tracking-wider">AI projects</span> projects.
+                    I contribute to <span className=" text-[#FF9D00] uppercase font-bold">open-source</span> libraries/repos and occasionally take on <span className=" uppercase text-[#FFD21E] font-bold tracking-wider">AI projects</span>.
                 </p>
                 <div className="flex items-center gap-3 lg:gap-6 flex-wrap">
                     <CopyCmd />
