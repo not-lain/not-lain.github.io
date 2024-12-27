@@ -1,6 +1,7 @@
 import React from "react";
+import { FaXTwitter } from "react-icons/fa6";
 import { SiHuggingface } from "react-icons/si";
-import { GitHubLogoIcon, InstagramLogoIcon, TwitterLogoIcon } from "@radix-ui/react-icons";
+import { GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
 import { ChevronRight, MailPlus, MouseIcon, Terminal } from "lucide-react";
 // import Image from "next/image";
 import Link from "next/link";
@@ -36,14 +37,14 @@ const page = () => {
                     <a href="https://github.com/not-lain" target="_blank" rel="noopener noreferrer">
                         <GitHubLogoIcon className=" h-6 lg:h-10 w-8 lg:w-8 duration-200 hover:-translate-y-2 cursor-pointer" />
                     </a>
-                    <a href="https://twitter.com/not_so_lain" target="_blank" rel="noopener noreferrer">
-                        <TwitterLogoIcon className=" h-6 lg:h-10 w-8 lg:w-8 duration-200 hover:-translate-y-2 cursor-pointer" />
+                    <a href="https://www.linkedin.com/in/hafedh-hichri/" target="_blank" rel="noopener noreferrer">
+                        <LinkedInLogoIcon className=" h-6 lg:h-10 w-8 lg:w-8 duration-200 hover:-translate-y-2 cursor-pointer" />
                     </a>
                     <a href="mailto:hhichri60@@gmail.com?body=Hello" target="_blank" rel="noopener noreferrer">
                         <MailPlus className=" h-6 lg:h-10 w-8 lg:w-8 duration-200 hover:-translate-y-2 cursor-pointer" />
                     </a>
-                    <a href="https://instagram.com/not_so_lain" target="_blank" rel="noopener noreferrer">
-                        <InstagramLogoIcon className=" h-6 lg:h-10 w-8 lg:w-8 duration-200 hover:-translate-y-2 cursor-pointer" />
+                    <a href="https://twitter.com/not_so_lain" target="_blank" rel="noopener noreferrer">
+                        <FaXTwitter className=" h-6 lg:h-10 w-8 lg:w-8 duration-200 hover:-translate-y-2 cursor-pointer" />
                     </a>
                     <a href="https://huggingface.com/not-lain" target="_blank" rel="noopener noreferrer">
                         <SiHuggingface className=" h-6 lg:h-10 w-8 lg:w-8 duration-200 hover:-translate-y-2 cursor-pointer" />

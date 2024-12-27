@@ -41,7 +41,7 @@ const TechBox: React.FC<TechBoxProps> = (props) => {
 
 const renderTechBoxes = (techArray: Tech[], idPrefix: string, refs: React.RefObject<HTMLDivElement>[]) => {
     return (
-        <div className="w-full flex justify-between items-center">
+        <div className="w-full flex justify-between items-center z-10">
             {techArray.map((tech, idx) => {
                 return <TechBox key={`${idPrefix}-${idx + 1}`} pinId={`${idPrefix}-pin-${idx + 1}`} title={tech.title} image={tech.image} color={tech.color} boxRef={refs[idx]} />;
             })}
