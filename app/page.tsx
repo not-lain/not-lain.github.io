@@ -5,6 +5,17 @@ import { SiHuggingface, SiX, SiGithub, SiLinkedin, SiMailboxdotorg } from "react
 export default function Portfolio() {
   return (
     <div className="max-w-3xl mx-auto px-4 py-8">
+      {/* Resume Button at Top */}
+      <div className="flex justify-end mb-4">
+        <a
+          href="https://drive.google.com/file/d/1v1dZzLjYQ6tpQg-QA9N7AKg2ABqmbWFT/view"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block px-4 py-2  text-black font-semibold rounded shadow"
+        >
+          View Resume
+        </a>
+      </div>
       {/* Header Section */}
       <header className="text-center mb-8">
         <h1 className="text-3xl font-bold mb-1">Hafedh Hichri</h1>
@@ -126,96 +137,208 @@ export default function Portfolio() {
 
         <ul className="list-disc pl-6 space-y-4">
           <li>
-            <Link href="https://github.com/huggingface/transformers/issues?q=sort%3Aupdated-desc%20is%3Amerged%20is%3Apr%20author%3Anot-lain%20" className="text-blue-500 hover:underline">
+            <Link href="https://github.com/huggingface/transformers/issues?q=sort%3Aupdated-desc%20is%3Amerged%20is%3Apr%20author%3Anot-lain%20" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
               🤗 Transformers
             </Link>
           </li>
           <li>
-            <Link href="https://github.com/unslothai/unsloth/issues?q=sort%3Aupdated-desc%20is%3Amerged%20is%3Apr%20author%3Anot-lain" className="text-blue-500 hover:underline">
+            <Link href="https://github.com/unslothai/unsloth/issues?q=sort%3Aupdated-desc%20is%3Amerged%20is%3Apr%20author%3Anot-lain" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
               🦥 Unsloth
             </Link>
           </li>
           <li>
-            <Link href="https://github.com/gradio-app/gradio/issues?q=sort%3Aupdated-desc%20is%3Amerged%20is%3Apr%20author%3Anot-lain%20" className="text-blue-500 hover:underline">
+            <Link href="https://github.com/gradio-app/gradio/issues?q=sort%3Aupdated-desc%20is%3Amerged%20is%3Apr%20author%3Anot-lain%20" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
               <Image
-          src="https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/gradio-color.png"
-          alt="Gradio Logo"
-          width={24}
-          height={24}
-          className="object-contain mr-2 inline-block"
-          priority
+                src="https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/gradio-color.png"
+                alt="Gradio Logo"
+                width={24}
+                height={24}
+                className="object-contain mr-2 inline-block"
+                priority
               /> Gradio
             </Link>
           </li>
           <li>
-            <Link href="https://github.com/chonkie-inc/chonkie/issues?q=sort%3Aupdated-desc%20is%3Amerged%20is%3Apr%20author%3Anot-lain" className="text-blue-500 hover:underline">
+            <Link href="https://github.com/chonkie-inc/chonkie/issues?q=sort%3Aupdated-desc%20is%3Amerged%20is%3Apr%20author%3Anot-lain" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
               <Image
-          src="https://avatars.githubusercontent.com/u/205278415?s=200&v=4"
-          alt="Chonkie Logo"
-          width={24}
-          height={24}
-          className="object-contain mr-2 inline-block"
-          priority
+                src="https://avatars.githubusercontent.com/u/205278415?s=200&v=4"
+                alt="Chonkie Logo"
+                width={24}
+                height={24}
+                className="object-contain mr-2 inline-block"
+                priority
               /> Chonkie
             </Link>
           </li>
           <li>
-            <Link href="https://github.com/huggingface/huggingface.js/issues?q=sort%3Aupdated-desc%20is%3Amerged%20is%3Apr%20author%3Anot-lain" className="text-blue-500 hover:underline">
+            <Link href="https://github.com/huggingface/huggingface.js/issues?q=sort%3Aupdated-desc%20is%3Amerged%20is%3Apr%20author%3Anot-lain" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
               🤗 HuggingFace.js
             </Link>
           </li>
           <li>
-            <Link href="https://github.com/fal-ai/fal/issues?q=sort%3Aupdated-desc%20is%3Amerged%20is%3Apr%20author%3Anot-lain" className="text-blue-500 hover:underline">
+            <Link href="https://github.com/fal-ai/fal/issues?q=sort%3Aupdated-desc%20is%3Amerged%20is%3Apr%20author%3Anot-lain" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
               <Image
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRv4-JD-JVK07Rd_Nnp4l1mQf_zkHJDVtVv_Ciz0N17cjEIvn_gj42ujbvx7zocG2L1nlI&usqp=CAU"
-          alt="Fals Logo"
-          width={24}
-          height={24}
-          className="object-contain mr-2 inline-block"
-          priority
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRv4-JD-JVK07Rd_Nnp4l1mQf_zkHJDVtVv_Ciz0N17cjEIvn_gj42ujbvx7zocG2L1nlI&usqp=CAU"
+                alt="Fals Logo"
+                width={24}
+                height={24}
+                className="object-contain mr-2 inline-block"
+                priority
               /> fal
             </Link>
           </li>
           <li>
-            <Link href="https://github.com/PramaLLC/BEN2/issues?q=sort%3Aupdated-desc%20is%3Amerged%20is%3Apr%20author%3Anot-lain" className="text-blue-500 hover:underline">
+            <Link href="https://github.com/PramaLLC/BEN2/issues?q=sort%3Aupdated-desc%20is%3Amerged%20is%3Apr%20author%3Anot-lain" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
               <Image
-          src="https://avatars.githubusercontent.com/u/157913250?v=4"
-          alt="Prama Logo"
-          width={24}
-          height={24}
-          className="object-contain mr-2 inline-block"
-          priority
+                src="https://avatars.githubusercontent.com/u/157913250?v=4"
+                alt="Prama Logo"
+                width={24}
+                height={24}
+                className="object-contain mr-2 inline-block"
+                priority
               /> ben2
             </Link>
           </li>
         </ul>
-        I also maintain a couple of libraries:
+        <p className="mb-4">
+          I also maintain a couple of libraries:
+        </p>
         <ul className="list-disc pl-6 space-y-4">
           <li>
-            <Link href="https://github.com/not-lain/loadimg" className="text-blue-500 hover:underline">
+            <Link href="https://github.com/not-lain/loadimg" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
               <Image
-          src="https://github.com/not-lain/loadimg/raw/main/loadimg.png?raw=true"
-          alt="Loadimg Logo"
-          width={24}
-          height={24}
-          className="object-contain mr-2 inline-block"
-          priority
-              /> loadimg
+                src="https://github.com/not-lain/loadimg/raw/main/loadimg.png?raw=true"
+                alt="Loadimg Logo"
+                width={24}
+                height={24}
+                className="object-contain mr-2 inline-block"
+                priority
+              /> Loadimg
             </Link>
           </li>
           <li>
-            <Link href="https://github.com/not-lain/pxia" className="text-blue-500 hover:underline">
+            <Link href="https://github.com/not-lain/pxia" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
               <Image
-          src="https://github.com/not-lain/pxia/raw/main/logo.png?raw=true"
-          alt="Pxia Logo"
-          width={24}
-          height={24}
-          className="object-contain mr-2 inline-block"
-          priority
-              /> pxia
+                src="https://github.com/not-lain/pxia/raw/main/logo.png?raw=true"
+                alt="Pxia Logo"
+                width={24}
+                height={24}
+                className="object-contain mr-2 inline-block"
+                priority
+              /> Pxia
+            </Link>
+          </li>
+          <li>
+            <Link href="https://github.com/chonkie-inc/chonkie" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
+              <Image
+                src="https://avatars.githubusercontent.com/u/205278415?s=200&v=4"
+                alt="Chonkie Logo"
+                width={24}
+                height={24}
+                className="object-contain mr-2 inline-block"
+                priority
+              /> Chonkie [collaborator]
             </Link>
           </li>
         </ul>
+        <p className="mb-4">
+          I also contributed to integrating several models with Hugging Face using PyTorchModelHubMixin, including:
+        </p>
+        <ul className="list-disc pl-6 space-y-4">
+          <li>
+            <Link href="https://huggingface.co/ZhengPeng7/BiRefNet" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
+              <Image
+                src="https://www.birefnet.top/Business/faiai.webp"
+                alt="BiRefNet Logo"
+                width={24}
+                height={24}
+                className="object-contain mr-2 inline-block"
+                priority
+              />
+              BiRefNet
+            </Link>
+          </li>
+          <li>
+            <Link href="https://huggingface.co/PramaLLC/BEN2" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
+              <Image
+                src="https://avatars.githubusercontent.com/u/157913250?v=4"
+                alt="Prama Logo"
+                width={24}
+                height={24}
+                className="object-contain mr-2 inline-block"
+                priority
+              />
+              BEN2
+            </Link>
+          </li>
+          <li>
+            <Link href="https://huggingface.co/PeiqingYang/MatAnyone" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
+              <Image
+                src="https://github.com/pq-yang/MatAnyone/raw/main/assets/matanyone_logo.png"
+                alt="MatAnyone Logo"
+                width={24}
+                height={24}
+                className="object-contain mr-2 inline-block"
+                priority
+              />
+              MatAnyone
+            </Link>
+          </li>
+          <li>
+            <Link href="https://huggingface.co/skytnt/anime-seg" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
+              <Image
+                src="https://cdn-avatars.huggingface.co/v1/production/uploads/1650375870480-noauth.png"
+                alt="AnimeSeg Logo"
+                width={24}
+                height={24}
+                className="object-contain mr-2 inline-block"
+                priority
+              />
+              anime-seg
+            </Link>
+          </li>
+          <li>
+            <Link href="https://huggingface.co/Arabic-Clip/araclip" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
+            <Image
+                src="https://cdn-avatars.huggingface.co/v1/production/uploads/61934cc71832e6ac3837d8b0/f2VVUYHkDkhLQvNxSE5ra.png"
+                alt="AraClip Logo"
+                width={24}
+                height={24}
+                className="object-contain mr-2 inline-block"
+                priority
+              />
+              araclip
+            </Link>
+          </li>
+          <li>
+            <Link href="https://huggingface.co/briaai/RMBG-1.4" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
+            <Image
+                src="https://cdn-avatars.huggingface.co/v1/production/uploads/65659985cfbe8a857070d950/1HTn-HmGDwK53SSJ5dEYt.png"
+                alt="briaa Logo"
+                width={24}
+                height={24}
+                className="object-contain mr-2 inline-block"
+                priority
+              />
+              RMBG-1.4
+            </Link>
+          </li>
+          <li>
+            <Link href="https://huggingface.co/takara-ai/SwarmFormer-Sentiment-Base" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
+            <Image
+                src="https://cdn-avatars.huggingface.co/v1/production/uploads/6613f7ae43c4456e13ecbdcc/CkDvoJY5UnC7SGkln8PrX.jpeg"
+                alt="Takara Logo"
+                width={24}
+                height={24}
+                className="object-contain mr-2 inline-block"
+                priority
+              />
+              SwarmFormer
+            </Link>
+          </li>
+
+        </ul>
+
       </section>
 
       {/* Invited Talks Section */}
@@ -225,10 +348,10 @@ export default function Portfolio() {
         <ul className="list-disc pl-6 space-y-2">
           <li>
             On <strong>April 27, 2025</strong>, I gave a talk at the{" "}
-            <Link href="https://www.facebook.com/Genesis.Labs.INSAT/posts/pfbid02jgFpxEYXZEh8JXERJEcwwpPhGjuNTKh4yERdaP52yGdncfa1Uj5KpfUoKzixPAarl" className="text-blue-500 hover:underline">
+            <Link href="https://www.facebook.com/Genesis.Labs.INSAT/posts/pfbid02jgFpxEYXZEh8JXERJEcwwpPhGjuNTKh4yERdaP52yGdncfa1Uj5KpfUoKzixPAarl" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
               Genesis Labs-INSAT
             </Link>{" "} about AI in Healthcare [
-            <Link href="https://docs.google.com/presentation/d/19xWdNUaIgb3jlXOJRzY5Z7bpbk8HyckFpyfAsi4ceRU/edit?usp=sharing" className="text-blue-500 hover:underline">
+            <Link href="https://docs.google.com/presentation/d/19xWdNUaIgb3jlXOJRzY5Z7bpbk8HyckFpyfAsi4ceRU/edit?usp=sharing" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
               slides
             </Link>
             ].
