@@ -39,9 +39,8 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
-          # You can specify a pnpm version if needed, e.g., version: 8
-          # If omitted, it usually installs the latest stable version.
-          run_install: false # We will run install manually later
+          version: 9
+          run_install: true # We will run install manually later
       - name: Setup Pages
         uses: actions/configure-pages@v5
         with:
