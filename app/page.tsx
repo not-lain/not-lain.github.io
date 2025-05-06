@@ -34,23 +34,23 @@ export default function Portfolio() {
 
         {/* Social Links */}
         <div className="flex justify-center gap-3 mb-4">
-          <Link href="https://x.com/not_so_lain" className="p-2 bg-gray-800 text-white rounded-full hover:bg-gray-700">
+          <Link href="https://x.com/not_so_lain" className="p-2 bg-gray-800 text-white rounded-full hover:bg-gray-700" target="_blank" rel="noopener noreferrer">
             <SiX size={20} />
             <span className="sr-only">Twitter</span>
           </Link>
-          <Link href="https://huggingface.co/not-lain" className="p-2 bg-gray-800 text-white rounded-full hover:bg-gray-700">
+          <Link href="https://huggingface.co/not-lain" className="p-2 bg-gray-800 text-white rounded-full hover:bg-gray-700" target="_blank" rel="noopener noreferrer">
             <SiHuggingface size={20} />
             <span className="sr-only">HuggingFace</span>
           </Link>
-          <Link href="https://github.com/not-lain" className="p-2 bg-gray-800 text-white rounded-full hover:bg-gray-700">
+          <Link href="https://github.com/not-lain" className="p-2 bg-gray-800 text-white rounded-full hover:bg-gray-700" target="_blank" rel="noopener noreferrer">
             <SiGithub size={20} />
             <span className="sr-only">GitHub</span>
           </Link>
-          <Link href="https://www.linkedin.com/in/hafedh-hichri/" className="p-2 bg-gray-800 text-white rounded-full hover:bg-gray-700">
+          <Link href="https://www.linkedin.com/in/hafedh-hichri/" className="p-2 bg-gray-800 text-white rounded-full hover:bg-gray-700" target="_blank" rel="noopener noreferrer">
             <SiLinkedin size={20} />
             <span className="sr-only">LinkedIn</span>
           </Link>
-          <Link href="mailto:hhichri60@gmail.com" className="p-2 bg-gray-800 text-white rounded-full hover:bg-gray-700">
+          <Link href="mailto:hhichri60@gmail.com" className="p-2 bg-gray-800 text-white rounded-full hover:bg-gray-700" target="_blank" rel="noopener noreferrer">
             <SiMailboxdotorg size={20} />
             <span className="sr-only">Email</span>
           </Link>
@@ -60,7 +60,7 @@ export default function Portfolio() {
       {/* Introduction Section */}
       <section className="mb-12">
         <p className="mb-4">
-          Hafedh Hichri, also known online as <Link href="https://github.com/not-lain" className="text-blue-500 hover:underline">not-lain</Link>, is a machine learning engineer at <Link href="https://www.linkedin.com/company/mermory/" className="text-blue-500 hover:underline">mermory</Link> and a <Link href="https://huggingface.co/hugging-fellows" className="text-blue-500 hover:underline">Hugging Face Fellow</Link>.
+          Hafedh Hichri, also known online as <Link href="https://github.com/not-lain" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">not-lain</Link>, is a machine learning engineer at <Link href="https://www.linkedin.com/company/mermory/" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">mermory</Link> and a <Link href="https://huggingface.co/hugging-fellows" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">Hugging Face Fellow</Link>.
           He develops custom AI models and integrates them with Hugging Face's platform, sharing his knowledge through blog posts on topics like training custom AI models and building RAG chatbots.
         </p>
 
@@ -69,7 +69,7 @@ export default function Portfolio() {
         </p>
 
         <p className="mb-4">
-          He studied Computer Science at the <Link href="https://enetcom.rnu.tn/en" className="text-blue-500 hover:underline">National School of Electronics and Telecommunications of Sfax (ENET'Com)</Link>, and has contributed to libraries like <Link href="#" className="text-blue-500 hover:underline">transformers</Link>, <Link href="#" className="text-blue-500 hover:underline">datasets</Link>, and <Link href="#" className="text-blue-500 hover:underline">diffusers</Link>.
+          He studied Computer Science at the <Link href="https://enetcom.rnu.tn/en" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">National School of Electronics and Telecommunications of Sfax (ENET'Com)</Link>, and has contributed to libraries major AI libraries in the field such as transformers, unsloth, autotiktokenizers, and multiple others.
         </p>
 
         <p className="mb-4">
@@ -84,41 +84,45 @@ export default function Portfolio() {
         <h2 className="text-2xl font-bold mb-4">Blogs</h2>
 
         <p className="mb-4">
-          I write about machine learning, natural language processing, and open-source software. Here are some of my recent blog posts:
+          I write about machine learning, natural language processing, and open-source software mostly in{" "}
+          <Link href="https://huggingface.co/not-lain/activity/articles" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
+            HuggingFace
+          </Link>
+          . Here are some of my recent blog posts:
         </p>
 
         <ul className="list-disc pl-6 space-y-4">
           <li>
             🔭{" "}
-            <Link href="https://huggingface.co/blog/not-lain/kv-caching" className="text-blue-500 hover:underline">
+            <Link href="https://huggingface.co/blog/not-lain/kv-caching" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
               KV Caching Explained: Optimizing Transformer Inference Efficiency
             </Link>{" "}
             A deep dive into the concept of KV caching in transformers, explaining its significance and providing practical examples.
           </li>
           <li>
             🔍{" "}
-            <Link href="https://huggingface.co/blog/not-lain/tensor-dims" className="text-blue-500 hover:underline">
+            <Link href="https://huggingface.co/blog/not-lain/tensor-dims" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
               Mastering Tensor Dimensions in Transformers
             </Link>{" "}
             A comprehensive guide to understanding tensor dimensions in transformers, with practical examples and tips for effective manipulation.
           </li>
           <li>
             🚀{" "}
-            <Link href="https://huggingface.co/blog/not-lain/building-hf-integrated-libraries" className="text-blue-500 hover:underline">
+            <Link href="https://huggingface.co/blog/not-lain/building-hf-integrated-libraries" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
               PyTorchModelHubMixin: Bridging the Gap for Custom AI Models on Hugging Face
             </Link>{" "}
             A detailed exploration of the PyTorchModelHubMixin class, showcasing its role in integrating custom AI models with the Hugging Face ecosystem.
           </li>
           <li>
             🧠{" "}
-            <Link href="https://huggingface.co/blog/not-lain/rag-chatbot-using-llama3" className="text-blue-500 hover:underline">
+            <Link href="https://huggingface.co/blog/not-lain/rag-chatbot-using-llama3" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
               RAG using huggingface tools
             </Link>{" "}
             A step-by-step guide to building a Retrieval-Augmented Generation (RAG) chatbot using Hugging Face tools, with practical examples and code snippets.
           </li>
           <li>
             🚀{" "}
-            <Link href="https://huggingface.co/blog/not-lain/image-retriever" className="text-blue-500 hover:underline">
+            <Link href="https://huggingface.co/blog/not-lain/image-retriever" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
               Image-based search engine
             </Link>{" "}
             A tutorial on creating an image-based search engine using Hugging Face tools, with practical examples and code snippets.
@@ -185,18 +189,6 @@ export default function Portfolio() {
                 className="object-contain mr-2 inline-block"
                 priority
               /> fal
-            </Link>
-          </li>
-          <li>
-            <Link href="https://github.com/PramaLLC/BEN2/issues?q=sort%3Aupdated-desc%20is%3Amerged%20is%3Apr%20author%3Anot-lain" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
-              <Image
-                src="https://avatars.githubusercontent.com/u/157913250?v=4"
-                alt="Prama Logo"
-                width={24}
-                height={24}
-                className="object-contain mr-2 inline-block"
-                priority
-              /> ben2
             </Link>
           </li>
         </ul>
@@ -299,7 +291,7 @@ export default function Portfolio() {
           </li>
           <li>
             <Link href="https://huggingface.co/Arabic-Clip/araclip" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
-            <Image
+              <Image
                 src="https://cdn-avatars.huggingface.co/v1/production/uploads/61934cc71832e6ac3837d8b0/f2VVUYHkDkhLQvNxSE5ra.png"
                 alt="AraClip Logo"
                 width={24}
@@ -312,7 +304,7 @@ export default function Portfolio() {
           </li>
           <li>
             <Link href="https://huggingface.co/briaai/RMBG-1.4" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
-            <Image
+              <Image
                 src="https://cdn-avatars.huggingface.co/v1/production/uploads/65659985cfbe8a857070d950/1HTn-HmGDwK53SSJ5dEYt.png"
                 alt="briaa Logo"
                 width={24}
@@ -325,7 +317,7 @@ export default function Portfolio() {
           </li>
           <li>
             <Link href="https://huggingface.co/takara-ai/SwarmFormer-Sentiment-Base" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
-            <Image
+              <Image
                 src="https://cdn-avatars.huggingface.co/v1/production/uploads/6613f7ae43c4456e13ecbdcc/CkDvoJY5UnC7SGkln8PrX.jpeg"
                 alt="Takara Logo"
                 width={24}
