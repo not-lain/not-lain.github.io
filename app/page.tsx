@@ -14,7 +14,7 @@ export default function Portfolio() {
       {/* Resume Button at Top */}
       <div className="flex justify-end mb-4">
         <a
-          href="https://drive.google.com/file/d/1v1dZzLjYQ6tpQg-QA9N7AKg2ABqmbWFT/view"
+          href="https://docs.google.com/document/d/1tSznOs_vf2fHMkbjzVHHb7J_uYICrN_8pBIuDjmFTx0/edit?usp=sharing"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block px-4 py-2  text-black font-semibold rounded shadow"
