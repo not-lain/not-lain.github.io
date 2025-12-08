@@ -590,27 +590,6 @@ export default function Portfolio() {
 
         <ul className="list-disc pl-6 space-y-2">
           <li>
-            On <strong>October 25-26, 2025</strong>, I gave a talk at{" "}
-            <Link
-              href="http://not-lain.github.io/"
-              className="text-blue-500 hover:underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              ENISO
-            </Link>{" "}
-            about getting started with TensorFlow [
-            <Link
-              href="https://docs.google.com/presentation/d/1RQRb4rjp2mVfKfYIHdSexl31P_AmwROaKBpztaLG8oI/edit?usp=sharing"
-              className="text-blue-500 hover:underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              slides
-            </Link>
-            ].
-          </li>
-          <li>
             On <strong>October 16, 2025</strong>, I gave a speech at{" "}
             <Link
               href="https://www.meetup.com/pydata-milton-keynes/events/311025969/?eventOrigin=group_upcoming_events"
