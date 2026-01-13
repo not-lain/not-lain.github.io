@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://not-lain.github.io"),
   title: "Portfolio | Hafedh Hichri",
   description: "Personal portfolio website for Hafedh Hichri",
   generator: "v0.dev",

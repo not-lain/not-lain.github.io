@@ -164,6 +164,18 @@ export default function Portfolio() {
 
         <ul className="list-disc pl-6 space-y-4">
           <li>
+            👁️{" "}
+            <Link
+              href="https://huggingface.co/blog/not-lain/vlms"
+              className="text-blue-500 hover:text-blue-400 hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+             Visualizing How VLMs Work
+            </Link>{" "}
+            A deep dive into how VLMs aggregate and process data across modalities, co-authored with Ed Daniels.
+          </li>
+          <li>
             🔭{" "}
             <Link
               href="https://huggingface.co/blog/not-lain/kv-caching"
