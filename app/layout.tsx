@@ -1,7 +1,8 @@
 import type React from "react"
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
+import { ThemeProvider } from "@/components/theme-provider"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -22,9 +23,9 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/og-image.png",
+        url: "/hafedh.jpg",
         width: 1200,
-        height: 630,
+        height: 1200,
         alt: "Portfolio | Hafedh Hichri",
       },
     ],
@@ -33,11 +34,18 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Portfolio | Hafedh Hichri",
     description: "Personal portfolio website for Hafedh Hichri",
-    images: ["/og-image.png"],
+    images: ["/hafedh.jpg"],
     creator: "@hafedhhichri",
   },
-  themeColor: "#ffffff",
-  viewport: "width=device-width, initial-scale=1",
+}
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#000000" },
+  ],
 }
 
 export default function RootLayout({
@@ -46,8 +54,17 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="light">
-      <body className={inter.className} suppressHydrationWarning={true}>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body className={inter.className}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   )
 }

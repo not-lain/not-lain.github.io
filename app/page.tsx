@@ -7,27 +7,30 @@ import {
   SiLinkedin,
   SiMailboxdotorg,
 } from "react-icons/si";
+import { ModeToggle } from "@/components/mode-toggle";
+
 
 export default function Portfolio() {
   return (
     <div className="max-w-3xl mx-auto px-4 py-8">
       {/* Resume Button at Top */}
-      <div className="flex justify-end mb-4">
+      <div className="flex justify-end gap-2 mb-4">
         <a
           href="https://docs.google.com/document/d/1tSznOs_vf2fHMkbjzVHHb7J_uYICrN_8pBIuDjmFTx0/edit?usp=sharing"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block px-4 py-2  text-black font-semibold rounded shadow"
+          className="inline-block px-4 py-2 bg-secondary text-secondary-foreground font-semibold rounded shadow hover:bg-secondary/80 transition-colors"
         >
           View Resume
         </a>
+        <ModeToggle />
       </div>
       {/* Header Section */}
       <header className="text-center mb-8">
         <h1 className="text-3xl font-bold mb-1">Hafedh Hichri</h1>
 
         {/* Profile Image */}
-        <div className="relative w-40 h-40 mx-auto mb-6 rounded-full overflow-hidden">
+        <div className="relative w-40 h-40 mx-auto mb-6 rounded-full overflow-hidden border-4 border-border">
           <Image
             src="/hafedh.jpg?height=160&width=160"
             alt="Profile Photo"
@@ -42,7 +45,7 @@ export default function Portfolio() {
         <div className="flex justify-center gap-3 mb-4">
           <Link
             href="https://x.com/not_so_lain"
-            className="p-2 bg-gray-800 text-white rounded-full hover:bg-gray-700"
+            className="p-2 bg-secondary text-secondary-foreground rounded-full hover:bg-secondary/80 transition-colors"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -51,7 +54,7 @@ export default function Portfolio() {
           </Link>
           <Link
             href="https://huggingface.co/not-lain"
-            className="p-2 bg-gray-800 text-white rounded-full hover:bg-gray-700"
+            className="p-2 bg-secondary text-secondary-foreground rounded-full hover:bg-secondary/80 transition-colors"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -60,7 +63,7 @@ export default function Portfolio() {
           </Link>
           <Link
             href="https://github.com/not-lain"
-            className="p-2 bg-gray-800 text-white rounded-full hover:bg-gray-700"
+            className="p-2 bg-secondary text-secondary-foreground rounded-full hover:bg-secondary/80 transition-colors"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -69,7 +72,7 @@ export default function Portfolio() {
           </Link>
           <Link
             href="https://www.linkedin.com/in/hafedh-hichri/"
-            className="p-2 bg-gray-800 text-white rounded-full hover:bg-gray-700"
+            className="p-2 bg-secondary text-secondary-foreground rounded-full hover:bg-secondary/80 transition-colors"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -78,7 +81,7 @@ export default function Portfolio() {
           </Link>
           <Link
             href="mailto:hhichri60@gmail.com"
-            className="p-2 bg-gray-800 text-white rounded-full hover:bg-gray-700"
+            className="p-2 bg-secondary text-secondary-foreground rounded-full hover:bg-secondary/80 transition-colors"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -94,7 +97,7 @@ export default function Portfolio() {
           Hafedh Hichri, also known online as{" "}
           <Link
             href="https://github.com/not-lain"
-            className="text-blue-500 hover:underline"
+            className="text-blue-500 hover:text-blue-400 hover:underline"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -103,59 +106,39 @@ export default function Portfolio() {
           , is a Software Engineer at{" "}
           <Link
             href="https://chonkie.ai/"
-            className="text-blue-500 hover:underline"
+            className="text-blue-500 hover:text-blue-400 hover:underline"
             target="_blank"
             rel="noopener noreferrer"
           >
             Chonkie
           </Link>{" "}
-          and a Machine Learning Engineer at{" "}
-          <Link
-            href="https://mermory.com/"
-            className="text-blue-500 hover:underline"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Mermory
-          </Link>{" "}
           and a{" "}
           <Link
             href="https://huggingface.co/hugging-fellows"
-            className="text-blue-500 hover:underline"
+            className="text-blue-500 hover:text-blue-400 hover:underline"
             target="_blank"
             rel="noopener noreferrer"
           >
             Hugging Face Fellow
           </Link>
-          . He develops custom AI models and integrates them with Hugging Face's
-          platform, sharing his knowledge through blog posts on topics like
-          training custom AI models and building RAG applications.
+          . He develops custom AI models and shares his knowledge through blog
+          posts on topics like RAG and custom model training.
         </p>
 
         <p className="mb-4">
-          Hafedh enjoys creating open-source software and is passionate about
-          making complex research accessible. His interests include machine
-          learning, natural language processing, and computer vision.
-        </p>
-
-        <p className="mb-4">
-          He studied Computer Science at the{" "}
+          He is passionate about making complex research accessible through
+          open-source software, contributing to libraries like transformers,
+          unsloth, and autotiktokenizers. He studied Computer Science at the{" "}
           <Link
             href="https://enetcom.rnu.tn/en"
-            className="text-blue-500 hover:underline"
+            className="text-blue-500 hover:text-blue-400 hover:underline"
             target="_blank"
             rel="noopener noreferrer"
           >
             National School of Electronics and Telecommunications of Sfax
             (ENET'Com)
           </Link>
-          , and has contributed to libraries major AI libraries in the field
-          such as transformers, unsloth, autotiktokenizers, and multiple others.
-        </p>
-
-        <p className="mb-4">
-          Hafedh's goal is to contribute to the advancement of open-source AI
-          and make machine learning more accessible.
+          .
         </p>
 
         <hr className="my-8 border-gray-200" />
@@ -170,7 +153,7 @@ export default function Portfolio() {
           open-source software mostly in{" "}
           <Link
             href="https://huggingface.co/not-lain/activity/articles"
-            className="text-blue-500 hover:underline"
+            className="text-blue-500 hover:text-blue-400 hover:underline"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -184,7 +167,7 @@ export default function Portfolio() {
             🔭{" "}
             <Link
               href="https://huggingface.co/blog/not-lain/kv-caching"
-              className="text-blue-500 hover:underline"
+              className="text-blue-500 hover:text-blue-400 hover:underline"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -197,7 +180,7 @@ export default function Portfolio() {
             🔍{" "}
             <Link
               href="https://huggingface.co/blog/not-lain/tensor-dims"
-              className="text-blue-500 hover:underline"
+              className="text-blue-500 hover:text-blue-400 hover:underline"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -211,7 +194,7 @@ export default function Portfolio() {
             🚀{" "}
             <Link
               href="https://huggingface.co/blog/not-lain/building-hf-integrated-libraries"
-              className="text-blue-500 hover:underline"
+              className="text-blue-500 hover:text-blue-400 hover:underline"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -226,7 +209,7 @@ export default function Portfolio() {
             🧠{" "}
             <Link
               href="https://huggingface.co/blog/not-lain/rag-chatbot-using-llama3"
-              className="text-blue-500 hover:underline"
+              className="text-blue-500 hover:text-blue-400 hover:underline"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -240,7 +223,7 @@ export default function Portfolio() {
             🚀{" "}
             <Link
               href="https://huggingface.co/blog/not-lain/image-retriever"
-              className="text-blue-500 hover:underline"
+              className="text-blue-500 hover:text-blue-400 hover:underline"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -267,10 +250,10 @@ export default function Portfolio() {
             href="https://github.com/huggingface/transformers/issues?q=sort%3Aupdated-desc%20is%3Amerged%20is%3Apr%20author%3Anot-lain%20"
             target="_blank"
             rel="noopener noreferrer"
-            className="block bg-white rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-gray-200"
+            className="block bg-card text-card-foreground rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-border"
           >
             <div className="font-bold text-lg mb-1">🤗 Transformers</div>
-            <div className="text-gray-600 text-sm">
+            <div className="text-muted-foreground text-sm">
               State-of-the-art AI library by Hugging Face.
             </div>
           </a>
@@ -279,10 +262,10 @@ export default function Portfolio() {
             href="https://github.com/unslothai/unsloth/issues?q=sort%3Aupdated-desc%20is%3Amerged%20is%3Apr%20author%3Anot-lain"
             target="_blank"
             rel="noopener noreferrer"
-            className="block bg-white rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-gray-200"
+            className="block bg-card text-card-foreground rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-border"
           >
             <div className="font-bold text-lg mb-1">🦥 Unsloth</div>
-            <div className="text-gray-600 text-sm">
+            <div className="text-muted-foreground text-sm">
               Efficient fine-tuning for LLMs.
             </div>
           </a>
@@ -291,7 +274,7 @@ export default function Portfolio() {
             href="https://github.com/gradio-app/gradio/issues?q=sort%3Aupdated-desc%20is%3Amerged%20is%3Apr%20author%3Anot-lain%20"
             target="_blank"
             rel="noopener noreferrer"
-            className="block bg-white rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-gray-200"
+            className="block bg-card text-card-foreground rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-border"
           >
             <div className="flex items-center mb-1 font-bold text-lg">
               <Image
@@ -304,7 +287,7 @@ export default function Portfolio() {
               />{" "}
               Gradio
             </div>
-            <div className="text-gray-600 text-sm">
+            <div className="text-muted-foreground text-sm">
               Python Library for building machine learning web-applications.
             </div>
           </a>
@@ -313,7 +296,7 @@ export default function Portfolio() {
             href="https://github.com/chonkie-inc/chonkie/issues?q=sort%3Aupdated-desc%20is%3Amerged%20is%3Apr%20author%3Anot-lain"
             target="_blank"
             rel="noopener noreferrer"
-            className="block bg-white rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-gray-200"
+            className="block bg-card text-card-foreground rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-border"
           >
             <div className="flex items-center mb-1 font-bold text-lg">
               <Image
@@ -325,12 +308,12 @@ export default function Portfolio() {
                 priority
               />{" "}
               Chonkie{" "}
-              <span className="ml-1 text-xs text-gray-500">[maintainer]</span>
+              <span className="ml-1 text-xs text-muted-foreground">[maintainer]</span>
             </div>
-            <div className="text-gray-600 text-sm">
+            <div className="text-muted-foreground text-sm">
               AI library for efficient data chunking and building RAG pipelines.
             </div>
-            <div className="text-gray-600 text-xs mt-1">
+            <div className="text-muted-foreground text-xs mt-1">
               <strong>Note:</strong> Currently working at this company and
               serving as their maintainer.
             </div>
@@ -340,10 +323,10 @@ export default function Portfolio() {
             href="https://github.com/huggingface/huggingface.js/issues?q=sort%3Aupdated-desc%20is%3Amerged%20is%3Apr%20author%3Anot-lain"
             target="_blank"
             rel="noopener noreferrer"
-            className="block bg-white rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-gray-200"
+            className="block bg-card text-card-foreground rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-border"
           >
             <div className="font-bold text-lg mb-1">🤗 HuggingFace.js</div>
-            <div className="text-gray-600 text-sm">
+            <div className="text-muted-foreground text-sm">
               JavaScript client for Hugging Face APIs. I contributed to API
               features and bug fixes.
             </div>
@@ -353,7 +336,7 @@ export default function Portfolio() {
             href="https://github.com/fal-ai/fal/issues?q=sort%3Aupdated-desc%20is%3Amerged%20is%3Apr%20author%3Anot-lain"
             target="_blank"
             rel="noopener noreferrer"
-            className="block bg-white rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-gray-200"
+            className="block bg-card text-card-foreground rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-border"
           >
             <div className="flex items-center mb-1 font-bold text-lg">
               <Image
@@ -366,7 +349,7 @@ export default function Portfolio() {
               />{" "}
               fal
             </div>
-            <div className="text-gray-600 text-sm">SDK Client for FAL</div>
+            <div className="text-muted-foreground text-sm">SDK Client for FAL</div>
           </a>
         </div>
         <p className="mb-4">I also maintain a couple of libraries:</p>
@@ -376,7 +359,7 @@ export default function Portfolio() {
             href="https://github.com/not-lain/loadimg"
             target="_blank"
             rel="noopener noreferrer"
-            className="block bg-white rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-gray-200"
+            className="block bg-card text-card-foreground rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-border"
           >
             <div className="flex items-center mb-1 font-bold text-lg">
               <Image
@@ -389,7 +372,7 @@ export default function Portfolio() {
               />{" "}
               Loadimg
             </div>
-            <div className="text-gray-600 text-sm">
+            <div className="text-muted-foreground text-sm">
               A fast, lightweight image loader for web apps. I am the creator
               and maintainer.
             </div>
@@ -399,7 +382,7 @@ export default function Portfolio() {
             href="https://github.com/not-lain/pxia"
             target="_blank"
             rel="noopener noreferrer"
-            className="block bg-white rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-gray-200"
+            className="block bg-card text-card-foreground rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-border"
           >
             <div className="flex items-center mb-1 font-bold text-lg">
               <Image
@@ -412,7 +395,7 @@ export default function Portfolio() {
               />{" "}
               Pxia
             </div>
-            <div className="text-gray-600 text-sm">
+            <div className="text-muted-foreground text-sm">
               A pixel manipulation library for creative coding. I am the creator
               and maintainer.
             </div>
@@ -428,7 +411,7 @@ export default function Portfolio() {
             href="https://huggingface.co/ZhengPeng7/BiRefNet"
             target="_blank"
             rel="noopener noreferrer"
-            className="block bg-white rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-gray-200"
+            className="block bg-card text-card-foreground rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-border"
           >
             <div className="flex items-center mb-1 font-bold text-lg">
               <Image
@@ -441,7 +424,7 @@ export default function Portfolio() {
               />{" "}
               BiRefNet
             </div>
-            <div className="text-gray-600 text-sm">
+            <div className="text-muted-foreground text-sm">
               SOTA Background Removal model for camouflaged image segmentation
               (chameleon, etc.).
             </div>
@@ -451,7 +434,7 @@ export default function Portfolio() {
             href="https://huggingface.co/PramaLLC/BEN2"
             target="_blank"
             rel="noopener noreferrer"
-            className="block bg-white rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-gray-200"
+            className="block bg-card text-card-foreground rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-border"
           >
             <div className="flex items-center mb-1 font-bold text-lg">
               <Image
@@ -464,7 +447,7 @@ export default function Portfolio() {
               />{" "}
               BEN2
             </div>
-            <div className="text-gray-600 text-sm">
+            <div className="text-muted-foreground text-sm">
               SOTA Background Removal model for detailed image segmentation
               (hair strands, etc.).
             </div>
@@ -474,7 +457,7 @@ export default function Portfolio() {
             href="https://huggingface.co/PeiqingYang/MatAnyone"
             target="_blank"
             rel="noopener noreferrer"
-            className="block bg-white rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-gray-200"
+            className="block bg-card text-card-foreground rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-border"
           >
             <div className="flex items-center mb-1 font-bold text-lg">
               <Image
@@ -487,7 +470,7 @@ export default function Portfolio() {
               />{" "}
               MatAnyone
             </div>
-            <div className="text-gray-600 text-sm">
+            <div className="text-muted-foreground text-sm">
               Video propagation model for consistent object segmentation across
               frames.
             </div>
@@ -497,7 +480,7 @@ export default function Portfolio() {
             href="https://huggingface.co/skytnt/anime-seg"
             target="_blank"
             rel="noopener noreferrer"
-            className="block bg-white rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-gray-200"
+            className="block bg-card text-card-foreground rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-border"
           >
             <div className="flex items-center mb-1 font-bold text-lg">
               <Image
@@ -510,7 +493,7 @@ export default function Portfolio() {
               />{" "}
               anime-seg
             </div>
-            <div className="text-gray-600 text-sm">
+            <div className="text-muted-foreground text-sm">
               Anime image segmentation model.
             </div>
           </a>
@@ -519,7 +502,7 @@ export default function Portfolio() {
             href="https://huggingface.co/Arabic-Clip/araclip"
             target="_blank"
             rel="noopener noreferrer"
-            className="block bg-white rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-gray-200"
+            className="block bg-card text-card-foreground rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-border"
           >
             <div className="flex items-center mb-1 font-bold text-lg">
               <Image
@@ -532,7 +515,7 @@ export default function Portfolio() {
               />{" "}
               araclip
             </div>
-            <div className="text-gray-600 text-sm">
+            <div className="text-muted-foreground text-sm">
               Arabic CLIP model for image-text tasks.
             </div>
           </a>
@@ -541,7 +524,7 @@ export default function Portfolio() {
             href="https://huggingface.co/briaai/RMBG-1.4"
             target="_blank"
             rel="noopener noreferrer"
-            className="block bg-white rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-gray-200"
+            className="block bg-card text-card-foreground rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-border"
           >
             <div className="flex items-center mb-1 font-bold text-lg">
               <Image
@@ -554,7 +537,7 @@ export default function Portfolio() {
               />{" "}
               RMBG-1.4
             </div>
-            <div className="text-gray-600 text-sm">
+            <div className="text-muted-foreground text-sm">
               Background removal model.
             </div>
           </a>
@@ -563,7 +546,7 @@ export default function Portfolio() {
             href="https://huggingface.co/takara-ai/SwarmFormer-Sentiment-Base"
             target="_blank"
             rel="noopener noreferrer"
-            className="block bg-white rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-gray-200"
+            className="block bg-card text-card-foreground rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-border"
           >
             <div className="flex items-center mb-1 font-bold text-lg">
               <Image
@@ -576,7 +559,7 @@ export default function Portfolio() {
               />{" "}
               SwarmFormer
             </div>
-            <div className="text-gray-600 text-sm">
+            <div className="text-muted-foreground text-sm">
               Transformer variant using hierarchical local-global attention
               reducing cost with strong accuracy.
             </div>
@@ -593,7 +576,7 @@ export default function Portfolio() {
             On <strong>October 16, 2025</strong>, I gave a speech at{" "}
             <Link
               href="https://www.meetup.com/pydata-milton-keynes/events/311025969/?eventOrigin=group_upcoming_events"
-              className="text-blue-500 hover:underline"
+              className="text-blue-500 hover:text-blue-400 hover:underline"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -603,7 +586,7 @@ export default function Portfolio() {
             [
             <Link
               href="https://docs.google.com/presentation/d/1CPcJgpyd5A3eh2ZIq9zecsBH2D1DshOxK1uEHt-Bg-U/edit?usp=sharing"
-              className="text-blue-500 hover:underline"
+              className="text-blue-500 hover:text-blue-400 hover:underline"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -615,7 +598,7 @@ export default function Portfolio() {
             On <strong>October 9th, 2025</strong>, I gave a talk at the{" "}
             <Link
               href="https://www.linkedin.com/posts/ed-daniels-339a811a3_computer-vision-hangout-were-back-activity-7381287630178795520-2FOM"
-              className="text-blue-500 hover:underline"
+              className="text-blue-500 hover:text-blue-400 hover:underline"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -624,7 +607,7 @@ export default function Portfolio() {
             about Building how VLMs work [
             <Link
               href="https://docs.google.com/presentation/d/1h7x4EoX5h15DWKItsycqH-rJ6c020bEGzlhlKz8EAWU/edit?usp=sharing"
-              className="text-blue-500 hover:underline"
+              className="text-blue-500 hover:text-blue-400 hover:underline"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -636,7 +619,7 @@ export default function Portfolio() {
             On <strong>June 13 to 15 2025</strong>, I was one of the judges at{" "}
             <Link
               href="https://www.linkedin.com/posts/artificial-intelligence-national-summit_ains2025-ai-rag-activity-7338626090820694016--kys?utm_source=share&utm_medium=member_desktop&rcm=ACoAADHJ074BHxxPkGGXTCvene-FdU4B_MJqkMo"
-              className="text-blue-500 hover:underline"
+              className="text-blue-500 hover:text-blue-400 hover:underline"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -645,7 +628,7 @@ export default function Portfolio() {
             and I gave a talk about Chonkie [
             <Link
               href="https://docs.google.com/presentation/d/1JplGOs5nSOgI672BwNUM7xdhPVis9FQBKgkiHyrKzIA/edit?usp=sharing"
-              className="text-blue-500 hover:underline"
+              className="text-blue-500 hover:text-blue-400 hover:underline"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -657,7 +640,7 @@ export default function Portfolio() {
             On <strong>April 27, 2025</strong>, I gave a talk at the{" "}
             <Link
               href="https://www.facebook.com/Genesis.Labs.INSAT/posts/pfbid02jgFpxEYXZEh8JXERJEcwwpPhGjuNTKh4yERdaP52yGdncfa1Uj5KpfUoKzixPAarl"
-              className="text-blue-500 hover:underline"
+              className="text-blue-500 hover:text-blue-400 hover:underline"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -666,7 +649,7 @@ export default function Portfolio() {
             about AI in Healthcare [
             <Link
               href="https://docs.google.com/presentation/d/19xWdNUaIgb3jlXOJRzY5Z7bpbk8HyckFpyfAsi4ceRU/edit?usp=sharing"
-              className="text-blue-500 hover:underline"
+              className="text-blue-500 hover:text-blue-400 hover:underline"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -678,7 +661,7 @@ export default function Portfolio() {
       </section>
 
       {/* Footer */}
-      <footer className="text-center text-gray-500 text-sm">
+      <footer className="text-center text-muted-foreground text-sm">
         <p>© {new Date().getFullYear()} - Hafedh Hichri</p>
       </footer>
     </div>
