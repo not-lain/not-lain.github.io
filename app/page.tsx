@@ -585,6 +585,40 @@ export default function Portfolio() {
 
         <ul className="list-disc pl-6 space-y-2">
           <li>
+            On <strong>February 19, 2026</strong>, I shared my knowledge about{" "}
+            <Link
+              href="https://www.meetup.com/pydata-milton-keynes/events/311025969/?eventOrigin=group_upcoming_events"
+              className="text-blue-500 hover:text-blue-400 hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Qdrant
+            </Link>{" "}
+            about Chonkie and Qdrant integration
+            [
+            <Link
+              href="https://not-lain.github.io/slides/"
+              className="text-blue-500 hover:text-blue-400 hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              slides
+            </Link>
+            ]
+          </li>
+          <li>
+            On <strong>January 18, 2026</strong>, I gave a keynote at {" "}
+            <Link
+              href="https://www.facebook.com/photo?fbid=860170536643056"
+              className="text-blue-500 hover:text-blue-400 hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Vectors in Orbit
+            </Link>{" "}
+            about Chonkie
+          </li>
+          <li>
             On <strong>October 16, 2025</strong>, I gave a speech at{" "}
             <Link
               href="https://www.meetup.com/pydata-milton-keynes/events/311025969/?eventOrigin=group_upcoming_events"
