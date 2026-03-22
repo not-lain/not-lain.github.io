@@ -609,14 +609,14 @@ export default function Portfolio() {
           <li>
             On <strong>February 19, 2026</strong>, I shared my knowledge about{" "}
             <Link
-              href="https://www.meetup.com/pydata-milton-keynes/events/311025969/?eventOrigin=group_upcoming_events"
+              href="https://www.linkedin.com/posts/qdrant_qdrant-vectorsearch-officehours-activity-7429120120742092800-HAE8/"
               className="text-blue-500 hover:text-blue-400 hover:underline"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Qdrant
+              Chonkie and Qdrant integration
             </Link>{" "}
-            about Chonkie and Qdrant integration
+            in discord
             [
             <Link
               href="https://not-lain.github.io/slides/"
