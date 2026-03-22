@@ -629,6 +629,28 @@ export default function Portfolio() {
             ]
           </li>
           <li>
+            On <strong>February 11, 2026</strong>, I was invited to {" "}
+            <Link
+              href="https://www.facebook.com/photo?fbid=1548907313904823"
+              className="text-blue-500 hover:text-blue-400 hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Data & Beyond
+            </Link>{" "}
+            to talk about RAG and different approaches in the field
+            [
+            <Link
+              href="https://docs.google.com/presentation/d/1k3J7X0b9YcYiSGJVk0jogTPLlJKEIFazXvF_CLiCQJc/edit?usp=sharing"
+              className="text-blue-500 hover:text-blue-400 hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              slides
+            </Link>
+            ]
+          </li>
+          <li>
             On <strong>January 18, 2026</strong>, I gave a keynote at {" "}
             <Link
               href="https://www.facebook.com/photo?fbid=860170536643056"
