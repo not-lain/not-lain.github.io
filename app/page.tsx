@@ -487,6 +487,28 @@ export default function Portfolio() {
               frames.
             </div>
           </a>
+          <a
+            href="https://huggingface.co/PeiqingYang/MatAnyone2"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block bg-card text-card-foreground rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-border"
+          >
+            <div className="flex items-center mb-1 font-bold text-lg">
+              <Image
+                src="https://github.com/pq-yang/MatAnyone2/blob/main/assets/matanyone2_logo.png?raw=true"
+                alt="MatAnyone2 Logo"
+                width={24}
+                height={24}
+                className="object-contain mr-2 inline-block"
+                priority
+              />{" "}
+              MatAnyone2
+            </div>
+            <div className="text-muted-foreground text-sm">
+              Video propagation model for consistent object segmentation across
+              frames.
+            </div>
+          </a>
           {/* Card: anime-seg */}
           <a
             href="https://huggingface.co/skytnt/anime-seg"
