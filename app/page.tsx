@@ -105,14 +105,14 @@ export default function Portfolio() {
           </Link>
           , is a Software Engineer at{" "}
           <Link
-            href="https://chonkie.ai/"
+            href="https://usefeyn.com/"
             className="text-blue-500 hover:text-blue-400 hover:underline"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Chonkie
+            Feyn
           </Link>{" "}
-          and a{" "}
+          (previously called Chonkie) and a{" "}
           <Link
             href="https://huggingface.co/hugging-fellows"
             className="text-blue-500 hover:text-blue-400 hover:underline"
@@ -121,14 +121,12 @@ export default function Portfolio() {
           >
             Hugging Face Fellow
           </Link>
-          . He develops custom AI models and shares his knowledge through blog
-          posts on topics like RAG and custom model training.
         </p>
 
         <p className="mb-4">
-          He is passionate about making complex research accessible through
-          open-source software, contributing to libraries like transformers,
-          unsloth, and autotiktokenizers. He studied Computer Science at the{" "}
+          He is passionate about making AI accessible through
+          open-source contributions to libraries like transformers,
+          unsloth, peft, .... He studied Computer Science at the{" "}
           <Link
             href="https://enetcom.rnu.tn/en"
             className="text-blue-500 hover:text-blue-400 hover:underline"
@@ -281,6 +279,19 @@ export default function Portfolio() {
               Efficient fine-tuning for LLMs.
             </div>
           </a>
+          {/* Card: PEFT */}
+          <a
+            href="https://github.com/huggingface/peft/issues?q=sort%3Aupdated-desc%20is%3Amerged%20is%3Apr%20author%3Anot-lain"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block bg-card text-card-foreground rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-border"
+          >
+            <div className="font-bold text-lg mb-1">🤗 PEFT</div>
+            <div className="text-muted-foreground text-sm">
+              Parameter-Efficient Fine-Tuning methods for large models by Hugging
+              Face.
+            </div>
+          </a>
           {/* Card: Gradio */}
           <a
             href="https://github.com/gradio-app/gradio/issues?q=sort%3Aupdated-desc%20is%3Amerged%20is%3Apr%20author%3Anot-lain%20"
@@ -363,6 +374,29 @@ export default function Portfolio() {
             </div>
             <div className="text-muted-foreground text-sm">SDK Client for FAL</div>
           </a>
+          {/* Card: Argilla */}
+          <a
+            href="https://github.com/argilla-io/argilla/pulls?q=is%3Amerged+is%3Apr+author%3Anot-lain"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block bg-card text-card-foreground rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-border"
+          >
+            <div className="flex items-center mb-1 font-bold text-lg">
+              <Image
+                src="https://avatars.githubusercontent.com/u/18415507?s=200&v=4"
+                alt="Argilla Logo"
+                width={24}
+                height={24}
+                className="object-contain mr-2 inline-block"
+                priority
+              />{" "}
+              Argilla
+            </div>
+            <div className="text-muted-foreground text-sm">
+              Collaboration tool for AI engineers and domain experts to build
+              high-quality datasets.
+            </div>
+          </a>
         </div>
         <p className="mb-4">I also maintain a couple of libraries:</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
@@ -427,7 +461,7 @@ export default function Portfolio() {
           >
             <div className="flex items-center mb-1 font-bold text-lg">
               <Image
-                src="https://www.birefnet.top/Business/faiai.webp"
+                src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*bNskDbetalj7HBPWuML13A.png"
                 alt="BiRefNet Logo"
                 width={24}
                 height={24}
