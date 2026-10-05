@@ -80,7 +80,7 @@ export default function Portfolio() {
             <span className="sr-only">LinkedIn</span>
           </Link>
           <Link
-            href="mailto:hhichri60@gmail.com"
+            href="mailto:lain.hichri@gmail.com"
             className="p-2 bg-secondary text-secondary-foreground rounded-full hover:bg-secondary/80 transition-colors"
             target="_blank"
             rel="noopener noreferrer"
@@ -447,6 +447,55 @@ export default function Portfolio() {
             </div>
           </a>
         </div>
+        <p className="mb-4">I also created these models at my company, Feyn:</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+          {/* Card: FeyNoBg */}
+          <a
+            href="https://usefeyn.com/blog/feynobg"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block bg-card text-card-foreground rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-border"
+          >
+            <div className="flex items-center mb-1 font-bold text-lg">
+              <Image
+                src="https://cdn-avatars.huggingface.co/v1/production/uploads/6067760d5a275b0e26010e6b/onWKgqCJEj5cc9sZ4h9IK.png"
+                alt="Feyn Logo"
+                width={24}
+                height={24}
+                className="object-contain mr-2 inline-block"
+                priority
+              />{" "}
+              FeyNoBg
+            </div>
+            <div className="text-muted-foreground text-sm">
+              State-of-the-art background removal model that predicts per-pixel
+              alpha mattes.
+            </div>
+          </a>
+          {/* Card: MultiMatte */}
+          <a
+            href="https://usefeyn.com/blog/multimatte"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block bg-card text-card-foreground rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-border"
+          >
+            <div className="flex items-center mb-1 font-bold text-lg">
+              <Image
+                src="https://cdn-avatars.huggingface.co/v1/production/uploads/6067760d5a275b0e26010e6b/onWKgqCJEj5cc9sZ4h9IK.png"
+                alt="Feyn Logo"
+                width={24}
+                height={24}
+                className="object-contain mr-2 inline-block"
+                priority
+              />{" "}
+              MultiMatte
+            </div>
+            <div className="text-muted-foreground text-sm">
+              Text-guided background removal built on SAM 3: name the object
+              to keep and it removes everything else.
+            </div>
+          </a>
+        </div>
         <p className="mb-4">
           I also contributed to integrating several models with Hugging Face
           using PyTorchModelHubMixin, including:
@@ -640,6 +689,28 @@ export default function Portfolio() {
         <h2 className="text-2xl font-bold mb-4">Invited Talks and News</h2>
 
         <ul className="list-disc pl-6 space-y-2">
+          <li>
+            On <strong>September 26, 2026</strong>, I was a judge at{" "}
+            <Link
+              href="https://www.instagram.com/p/DdtRI2miJfG/?img_index=2"
+              className="text-blue-500 hover:text-blue-400 hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              IndabaX Tunisia
+            </Link>{" "}
+            and gave a talk about best practices in finetuning
+            [
+            <Link
+              href="https://docs.google.com/presentation/d/10JV4uC8sfd6anTh9Vff1h4EHVf-CgNIrgzVvpWrc54g/edit?usp=sharing"
+              className="text-blue-500 hover:text-blue-400 hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              slides
+            </Link>
+            ]
+          </li>
           <li>
             On <strong>February 19, 2026</strong>, I shared my knowledge about{" "}
             <Link
