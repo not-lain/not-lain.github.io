@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     default: "Portfolio | Hafedh Hichri",
     template: "%s",
   },
-  description: "Personal portfolio website for Hafedh Hichri",
+  description: "Personal portfolio website for Hafedh Hichri (Not Lain)",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -23,24 +23,16 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "Portfolio | Hafedh Hichri",
-    description: "Personal portfolio website for Hafedh Hichri",
+    title: "Hafedh Hichri (Not Lain) | Portfolio",
+    description: "Personal portfolio website for Hafedh Hichri (Not Lain)",
     url: "https://not-lain.github.io/",
+    siteName: "not-lain",
     type: "website",
-    images: [
-      {
-        url: "/hafedh.jpg",
-        width: 651,
-        height: 660,
-        alt: "Portfolio | Hafedh Hichri",
-      },
-    ],
   },
   twitter: {
-    card: "summary",
-    title: "Portfolio | Hafedh Hichri",
-    description: "Personal portfolio website for Hafedh Hichri",
-    images: ["/hafedh.jpg"],
+    card: "summary_large_image",
+    title: "Hafedh Hichri (Not Lain) | Portfolio",
+    description: "Personal portfolio website for Hafedh Hichri (Not Lain)",
     creator: "@not_so_lain",
   },
 }

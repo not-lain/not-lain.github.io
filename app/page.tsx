@@ -24,7 +24,7 @@ import "./hafedh/hafedh.css"
 
 export const metadata: Metadata = {
   title: `${profile.handle} | ${profile.name}`,
-  description: `online i go by ${profile.handle}.`,
+  description: `Personal portfolio website for ${profile.name} (Not Lain)`,
 }
 
 function Ext({ href, children }: { href: string; children: ReactNode }) {
