@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="88" height="31" viewBox="0 0 88 31" shape-rendering="crispEdges">
+  <!-- bevel -->
+  <rect width="88" height="31" fill="#ffd43b"/>
+  <rect x="0" y="0" width="88" height="1" fill="#fff"/>
+  <rect x="0" y="0" width="1" height="31" fill="#fff"/>
+  <rect x="0" y="30" width="88" height="1" fill="#7a5f00"/>
+  <rect x="87" y="0" width="1" height="31" fill="#7a5f00"/>
+  <rect x="2" y="2" width="84" height="27" fill="#306998"/>
+  <!-- pixel python logo -->
+  <g fill="#ffd43b">
+    <rect x="9" y="5" width="7" height="2"/>
+    <rect x="7" y="7" width="9" height="5"/>
+    <rect x="4" y="12" width="12" height="2"/>
+    <rect x="4" y="14" width="3" height="6"/>
+  </g>
+  <rect x="9" y="8" width="2" height="2" fill="#306998"/>
+  <g fill="#fff">
+    <rect x="16" y="11" width="3" height="3"/>
+    <rect x="9" y="17" width="12" height="2"/>
+    <rect x="16" y="14" width="5" height="3"/>
+    <rect x="12" y="19" width="9" height="5"/>
+    <rect x="12" y="24" width="7" height="2"/>
+  </g>
+  <rect x="17" y="21" width="2" height="2" fill="#306998"/>
+  <!-- label -->
+  <text x="54" y="14" fill="#ffd43b" font-family="'JetBrains Mono', ui-monospace, Consolas, monospace" font-size="7" text-anchor="middle">powered by</text>
+  <text x="54" y="25" fill="#fff" font-family="'JetBrains Mono', ui-monospace, Consolas, monospace" font-size="11" font-weight="700" text-anchor="middle">python</text>
+</svg>

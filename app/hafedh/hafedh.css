@@ -1,0 +1,983 @@
+/* "lain" theme: monochrome brutalism after https://minha.sh, broken up by
+   glitchcore effects. The only colour on the page is the red/cyan RGB split
+   of a glitch. Everything is scoped under .lain; effects only run when
+   [data-fx="on"]. */
+
+.lain {
+  --l-light: #fff;
+  --l-dark: #000;
+  --l-darkgray: #222;
+  --l-gray: #888;
+  --l-lightgray: #e6e6e6;
+  --l-border: 2px;
+  /* glitch channels, only ever used for transient RGB-split effects */
+  --l-pink: #ff003c;
+  --l-cyan: #00e5ff;
+
+  min-height: 100vh;
+  background: var(--l-light);
+  color: var(--l-darkgray);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+html.dark .lain {
+  --l-light: #000;
+  --l-dark: #fff;
+  --l-darkgray: #ddd;
+  --l-gray: #888;
+  --l-lightgray: #222;
+}
+
+.lain :focus-visible {
+  outline: 2px dashed var(--l-dark);
+  outline-offset: 3px;
+}
+
+.lain ::selection {
+  background: var(--l-dark);
+  color: var(--l-light);
+}
+
+.lain-page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+.lain a {
+  color: var(--l-dark);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.lain p a,
+.lain li a {
+  border-bottom: 1px dashed var(--l-gray);
+}
+
+.lain p a:hover,
+.lain li a:hover {
+  background: var(--l-dark);
+  color: var(--l-light);
+  border-bottom-color: var(--l-dark);
+}
+
+.lain[data-fx="on"] p a:hover,
+.lain[data-fx="on"] li a:hover {
+  text-shadow: -1px 0 var(--l-pink), 1px 0 var(--l-cyan);
+}
+
+.lain h1,
+.lain h2,
+.lain h3 {
+  color: var(--l-dark);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.lain h2 {
+  font-size: 1.25rem;
+  margin: 2.5rem 0 0.75rem;
+}
+
+.lain h2::before {
+  content: "## ";
+  color: var(--l-gray);
+}
+
+.lain h3 {
+  font-size: 0.95rem;
+  margin: 1.75rem 0 0.25rem;
+}
+
+.lain p {
+  margin: 0 0 1rem;
+}
+
+/* top bar */
+.lain-topbar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.lain-breadcrumb {
+  flex: 1;
+  font-size: 0.9rem;
+}
+
+.lain-breadcrumb .sep {
+  color: var(--l-gray);
+  margin: 0 0.5ch;
+}
+
+.lain-breadcrumb .here {
+  color: var(--l-darkgray);
+}
+
+.lain-square {
+  display: inline-flex;
+  align-items: center;
+  height: 2rem;
+  padding: 0 1ch;
+  border: var(--l-border) solid var(--l-dark);
+  border-radius: 0;
+  background: var(--l-light);
+  color: var(--l-dark);
+  font-size: 0.85rem;
+}
+
+.lain button.lain-square {
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.lain button.lain-square:disabled {
+  cursor: not-allowed;
+  color: var(--l-gray);
+}
+
+.lain .lain-square:not(:disabled):hover {
+  background: var(--l-dark);
+  color: var(--l-light);
+}
+
+.lain .lain-toggle {
+  width: 2rem;
+  height: 2rem;
+  border: var(--l-border) solid var(--l-dark);
+  border-radius: 0;
+  background: var(--l-light);
+  color: var(--l-dark);
+  box-shadow: none;
+}
+
+.lain .lain-toggle:hover {
+  background: var(--l-dark);
+  color: var(--l-light);
+}
+
+/* profile header */
+.lain-profile {
+  margin: 1.5rem 0 1.5rem;
+}
+
+.lain-banner {
+  position: relative;
+  height: 132px;
+  border: var(--l-border) solid var(--l-dark);
+  background-color: var(--l-light);
+  background-image:
+    repeating-linear-gradient(0deg, var(--l-lightgray) 0 1px, transparent 1px 4px),
+    radial-gradient(var(--l-dark) 1px, transparent 1.5px);
+  background-size: auto, 8px 8px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0.5rem 1ch;
+  font-size: 0.75rem;
+  color: var(--l-gray);
+  overflow: hidden;
+}
+
+/* slow scan band rolling down the banner, like a bad signal */
+.lain-banner::after {
+  content: "";
+  position: absolute;
+  inset: -40% 0 auto;
+  height: 40%;
+  background: linear-gradient(to bottom, transparent, color-mix(in srgb, var(--l-dark) 12%, transparent), transparent);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.lain[data-fx="on"] .lain-banner::after {
+  opacity: 1;
+  animation: lain-roll 6s linear infinite;
+}
+
+@keyframes lain-roll {
+  to {
+    transform: translateY(400%);
+  }
+}
+
+.lain-banner-line {
+  position: relative;
+  background: var(--l-light);
+  padding: 0 0.5ch;
+}
+
+.lain-banner-jp {
+  position: absolute;
+  left: 1ch;
+  bottom: 0.25rem;
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: var(--l-lightgray);
+  white-space: nowrap;
+  user-select: none;
+}
+
+html.dark .lain-banner-jp {
+  color: #333;
+}
+
+.lain-profile-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: -14px;
+  padding-left: 1ch;
+}
+
+.lain-avatar {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid var(--l-light);
+  outline: 2px solid var(--l-dark);
+  object-fit: cover;
+  background: var(--l-light);
+  filter: grayscale(1) contrast(1.15);
+}
+
+.lain[data-fx="on"] .lain-avatar:hover {
+  animation: lain-tear 0.9s steps(1) infinite;
+}
+
+@keyframes lain-tear {
+  0%,
+  100% {
+    filter: grayscale(1) contrast(1.15) drop-shadow(-3px 0 var(--l-pink)) drop-shadow(3px 0 var(--l-cyan));
+    clip-path: inset(0);
+  }
+  33% {
+    filter: grayscale(1) contrast(1.6) drop-shadow(3px 0 var(--l-pink)) drop-shadow(-3px 0 var(--l-cyan));
+    clip-path: polygon(0 0, 100% 0, 100% 40%, 92% 40%, 92% 55%, 100% 55%, 100% 100%, 0 100%, 0 70%, 8% 70%, 8% 60%, 0 60%);
+  }
+  66% {
+    filter: grayscale(1) invert(1);
+    clip-path: inset(0);
+  }
+}
+
+.lain-name {
+  font-size: 1.25rem;
+  margin: 22px 0 0;
+}
+
+.lain-tagline {
+  margin: 0;
+  color: var(--l-gray);
+  font-size: 0.85rem;
+}
+
+.lain-socials {
+  margin: 1rem 0 0;
+  font-size: 0.85rem;
+}
+
+.lain-socials .sep {
+  color: var(--l-gray);
+  margin: 0 1ch;
+}
+
+/* lists */
+.lain-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.lain-list li {
+  padding-left: 2ch;
+  position: relative;
+}
+
+.lain-list li::before {
+  content: "-";
+  position: absolute;
+  left: 0;
+  color: var(--l-gray);
+}
+
+.lain-meta {
+  display: block;
+  color: var(--l-gray);
+  font-size: 0.8rem;
+}
+
+/* collapsible folders (native <details>) */
+.lain-folder {
+  margin: 0 0 0.75rem;
+}
+
+.lain-folder > summary {
+  display: flex;
+  align-items: center;
+  gap: 1ch;
+  width: fit-content;
+  margin: 1.25rem 0 0.5rem;
+  padding: 0.1rem 1ch 0.1rem 0;
+  list-style: none;
+  cursor: pointer;
+  color: var(--l-dark);
+  font-weight: 700;
+  font-size: 0.95rem;
+  user-select: none;
+}
+
+.lain-folder > summary::-webkit-details-marker {
+  display: none;
+}
+
+.lain-folder > summary::before {
+  content: "[+]";
+  color: var(--l-gray);
+  font-weight: 400;
+}
+
+.lain-folder[open] > summary::before {
+  content: "[-]";
+}
+
+.lain-folder > summary:hover {
+  background: var(--l-dark);
+  color: var(--l-light);
+}
+
+.lain-folder > summary:hover::before,
+.lain-folder > summary:hover .lain-folder-count {
+  color: var(--l-light);
+}
+
+.lain-folder-count {
+  color: var(--l-gray);
+  font-weight: 400;
+  font-size: 0.8rem;
+}
+
+/* "now": short lists sit side by side */
+.lain-now-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 2rem;
+}
+
+@media (max-width: 600px) {
+  .lain-now-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* project cards */
+.lain-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: 0.5rem 0 1rem;
+}
+
+@media (max-width: 600px) {
+  .lain-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.lain a.lain-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.85rem 1ch;
+  border: var(--l-border) solid var(--l-dark);
+  border-radius: 0;
+  background: transparent;
+  transition: transform 0.13s, box-shadow 0.13s, background-color 0.13s;
+}
+
+.lain a.lain-card:hover {
+  background: var(--l-light);
+  box-shadow: 5px 5px 0 0 var(--l-dark);
+  transform: translate(-3px, -3px);
+}
+
+/* the offset shadow tears into RGB fringes */
+.lain[data-fx="on"] a.lain-card:hover {
+  box-shadow:
+    5px 5px 0 0 var(--l-dark),
+    7px 4px 0 0 var(--l-pink),
+    3px 7px 0 0 var(--l-cyan);
+}
+
+.lain-card-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75ch;
+  color: var(--l-dark);
+  font-size: 0.95rem;
+}
+
+.lain-card-title img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  filter: grayscale(1);
+  transition: filter 0.13s;
+}
+
+.lain a.lain-card:hover .lain-card-title img {
+  filter: none;
+}
+
+.lain-badge {
+  border: 1px solid var(--l-dark);
+  padding: 0 0.5ch;
+  font-size: 0.7rem;
+  line-height: 1.4;
+}
+
+.lain-card-desc {
+  color: var(--l-darkgray);
+  font-weight: 400;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.lain-card-note {
+  color: var(--l-gray);
+  font-weight: 400;
+  font-size: 0.75rem;
+}
+
+/* 88x31 buttons, after https://buttons.minha.sh */
+.lain .buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.lain .mine-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  width: 88px;
+}
+
+.lain .wall {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.lain .buttons a {
+  line-height: 0;
+  border: none;
+}
+
+.lain .buttons img {
+  display: block;
+  width: 88px;
+  height: 31px;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.lain .embed {
+  border: none;
+  background: none;
+  padding: 0;
+  font: inherit;
+  font-size: 12px;
+  line-height: 1;
+  color: var(--l-gray);
+  cursor: pointer;
+}
+
+.lain .embed:hover {
+  color: var(--l-dark);
+}
+
+.lain .wall-more {
+  align-self: center;
+  font-weight: 400;
+}
+
+/* /buttons page */
+.lain-buttons-title {
+  font-size: 1.5rem;
+  margin: 2rem 0 0.75rem;
+}
+
+.lain-embed {
+  margin: 1.5rem 0;
+}
+
+.lain-embed-body {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.lain-embed-code {
+  flex: 1 1 260px;
+  margin: 0;
+  padding: 0.5rem 1ch;
+  border: 1px dashed var(--l-gray);
+  background: var(--l-light);
+  font-size: 0.75rem;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.lain-button-grid {
+  --cols: 6;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(var(--cols), 88px);
+  gap: 1rem 12px;
+}
+
+@media (max-width: 680px) {
+  .lain-button-grid {
+    --cols: 4;
+  }
+}
+
+@media (max-width: 420px) {
+  .lain-button-grid {
+    --cols: 3;
+  }
+}
+
+.lain-button-grid li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.lain-button-grid .lain-meta {
+  font-size: 0.7rem;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.lain .lain-button-grid a,
+.lain .lain-embed a {
+  line-height: 0;
+  border: none;
+}
+
+.lain .lain-button-grid img,
+.lain .lain-embed img {
+  display: block;
+  width: 88px;
+  height: 31px;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.lain[data-fx="on"] .lain-button-grid a:hover img {
+  filter: drop-shadow(-2px 0 var(--l-pink)) drop-shadow(2px 0 var(--l-cyan));
+}
+
+/* glitch: RGB-split slices that break through briefly, then settle */
+.lain .glitch {
+  position: relative;
+  display: inline-block;
+}
+
+.lain[data-fx="on"] .glitch::before,
+.lain[data-fx="on"] .glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  clip-path: inset(100% 0 0);
+}
+
+.lain[data-fx="on"] .glitch::before {
+  color: var(--l-pink);
+  animation: lain-slice 4.2s steps(1) infinite;
+}
+
+.lain[data-fx="on"] .glitch::after {
+  color: var(--l-cyan);
+  animation: lain-slice 5.3s steps(1) infinite reverse;
+}
+
+.lain[data-fx="on"] h2 .glitch::before,
+.lain[data-fx="on"] h2 .glitch::after {
+  animation: none;
+}
+
+.lain[data-fx="on"] h2:hover .glitch::before {
+  animation: lain-slice 0.9s steps(1) 1;
+}
+
+.lain[data-fx="on"] h2:hover .glitch::after {
+  animation: lain-slice 0.9s steps(1) 1 reverse;
+}
+
+@keyframes lain-slice {
+  0%,
+  90%,
+  100% {
+    clip-path: inset(100% 0 0);
+    transform: none;
+  }
+  92% {
+    clip-path: inset(15% 0 62%);
+    transform: translateX(-3px);
+  }
+  95% {
+    clip-path: inset(58% 0 12%);
+    transform: translateX(3px);
+  }
+  97% {
+    clip-path: inset(35% 0 40%);
+    transform: translateX(-2px);
+  }
+}
+
+/* "rm -rf /" from the terminal */
+.lain.is-glitching .lain-page {
+  animation: lain-shake 0.7s steps(2) 1;
+}
+
+@keyframes lain-shake {
+  0%,
+  100% {
+    transform: none;
+    filter: none;
+  }
+  25% {
+    transform: translate(-4px, 1px) skewX(2deg);
+    filter: drop-shadow(-3px 0 var(--l-pink)) drop-shadow(3px 0 var(--l-cyan));
+  }
+  50% {
+    transform: translate(3px, -1px);
+  }
+  75% {
+    transform: translate(-2px, 0) skewX(-2deg);
+    filter: drop-shadow(3px 0 var(--l-pink)) drop-shadow(-3px 0 var(--l-cyan));
+  }
+}
+
+/* blinking cursor */
+.lain .cursor::after {
+  content: "_";
+  margin-left: 0.25ch;
+}
+
+.lain[data-fx="on"] .cursor::after {
+  animation: lain-blink 1s steps(1) infinite;
+}
+
+@keyframes lain-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* retro window chrome */
+.lain-win {
+  border: var(--l-border) solid var(--l-dark);
+  background: var(--l-light);
+  box-shadow: 5px 5px 0 0 var(--l-dark);
+}
+
+.lain-win-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1ch;
+  padding: 0 1ch;
+  border-bottom: var(--l-border) solid var(--l-dark);
+  font-family: var(--font-vt), monospace;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--l-light);
+  background: var(--l-dark);
+}
+
+.lain .lain-win-ctrl {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+}
+
+.lain-win-body {
+  margin: 0;
+  padding: 0.75rem 1ch;
+}
+
+/* status.exe */
+.lain-status {
+  margin: 0 0 1rem;
+  font-size: 0.85rem;
+}
+
+.lain-status .lain-win-body {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 0.5rem 2.5rem;
+  justify-content: start;
+}
+
+.lain-status dt {
+  color: var(--l-gray);
+  font-size: 0.75rem;
+}
+
+.lain-status dd {
+  margin: 0;
+  color: var(--l-dark);
+}
+
+.lain-status-plan {
+  grid-column: 1 / -1;
+}
+
+.lain-status-plan dd::before {
+  content: "> ";
+  color: var(--l-gray);
+}
+
+.lain-readout {
+  font-family: var(--font-vt), monospace;
+  font-size: 1.35rem;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.lain-readout {
+  color: var(--l-dark);
+}
+
+.lain-live {
+  color: var(--l-dark);
+}
+
+.lain[data-fx="on"] .lain-live {
+  animation: lain-live 2s steps(1) infinite;
+}
+
+@keyframes lain-live {
+  56% {
+    opacity: 0.2;
+  }
+}
+
+/* terminal */
+.lain-term-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 12vh 1rem 1rem;
+  background: color-mix(in srgb, var(--l-light) 55%, transparent);
+  backdrop-filter: blur(2px);
+}
+
+.lain-term {
+  width: min(640px, 100%);
+  font-size: 0.85rem;
+}
+
+.lain-term-log {
+  max-height: 50vh;
+  overflow-y: auto;
+  padding: 0.75rem 1ch 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.lain-term-in {
+  color: var(--l-dark);
+  font-weight: 600;
+}
+
+.lain-term-out {
+  color: var(--l-darkgray);
+}
+
+.lain-term-err {
+  color: var(--l-dark);
+  font-weight: 700;
+}
+
+.lain-term-err::before {
+  content: "! ";
+}
+
+.lain-term-input {
+  display: flex;
+  gap: 1ch;
+  padding: 0.5rem 1ch 0.75rem;
+  color: var(--l-gray);
+}
+
+.lain-term-input input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--l-dark);
+  font: inherit;
+  caret-color: var(--l-dark);
+}
+
+.lain .lain-term-input input:focus-visible {
+  outline: none;
+}
+
+/* boot screen */
+.lain-boot {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 max(1rem, calc(50vw - 340px));
+  background: #000;
+  color: #fff;
+  font-family: var(--font-vt), monospace;
+  font-size: 1.4rem;
+  text-shadow: -1px 0 var(--l-pink), 1px 0 var(--l-cyan);
+  animation: lain-power-on 0.3s ease-out;
+}
+
+.lain-boot pre {
+  margin: 0;
+  font: inherit;
+  white-space: pre-wrap;
+}
+
+.lain-boot-skip {
+  margin-top: 2rem;
+  font-size: 1rem;
+  color: #888;
+  text-shadow: none;
+}
+
+.lain-boot.is-off {
+  animation: lain-power-off 0.35s ease-in forwards;
+}
+
+@keyframes lain-power-on {
+  from {
+    transform: scaleY(0.01);
+    filter: brightness(3);
+  }
+}
+
+@keyframes lain-power-off {
+  60% {
+    transform: scaleY(0.01);
+    filter: brightness(3);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0, 0.01);
+    opacity: 0;
+  }
+}
+
+/* CRT overlay (scanlines + vignette, after radio.minha.sh) and film grain */
+.lain-crt,
+.lain-grain {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+}
+
+.lain[data-fx="on"] .lain-crt {
+  display: block;
+  background:
+    repeating-linear-gradient(to bottom, transparent 0 2px, rgb(0 0 0 / 0.06) 2px 3px),
+    radial-gradient(120% 100% at 50% 50%, transparent 60%, rgb(0 0 0 / 0.2) 100%);
+}
+
+html.dark .lain[data-fx="on"] .lain-crt {
+  background:
+    repeating-linear-gradient(to bottom, transparent 0 2px, rgb(0 0 0 / 0.28) 2px 3px),
+    radial-gradient(120% 100% at 50% 50%, transparent 55%, rgb(0 0 0 / 0.55) 100%);
+  animation: lain-flicker 5.2s infinite;
+}
+
+.lain[data-fx="on"] .lain-grain {
+  display: block;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@keyframes lain-flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  48% {
+    opacity: 0.94;
+  }
+  50% {
+    opacity: 0.88;
+  }
+  52% {
+    opacity: 1;
+  }
+}
+
+/* belt and braces: FxRoot already turns fx off for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .lain *,
+  .lain *::before,
+  .lain *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .lain-crt,
+  .lain-grain,
+  .lain-boot {
+    display: none !important;
+  }
+}
+
+/* footer */
+.lain-footer {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: var(--l-border) solid var(--l-dark);
+  color: var(--l-gray);
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}

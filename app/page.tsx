@@ -1,864 +1,234 @@
-import Image from "next/image";
-import Link from "next/link";
+import type { Metadata } from "next"
+import type { ReactNode } from "react"
+import { ModeToggle } from "@/components/mode-toggle"
+import { Boot } from "@/components/hafedh/boot"
+import { ButtonWall } from "@/components/hafedh/button-wall"
+import { FxRoot, FxToggle } from "@/components/hafedh/fx-provider"
+import { mono, vt } from "@/components/hafedh/fonts"
+import { Scramble } from "@/components/hafedh/scramble"
+import { StatusPanel } from "@/components/hafedh/status-panel"
+import { Terminal } from "@/components/hafedh/terminal"
 import {
-  SiHuggingface,
-  SiX,
-  SiGithub,
-  SiLinkedin,
-  SiMailboxdotorg,
-} from "react-icons/si";
-import { ModeToggle } from "@/components/mode-toggle";
+  blogs,
+  blogsIntro,
+  intro,
+  now,
+  profile,
+  projectGroups,
+  talks,
+  type Project,
+  type Segment,
+  type Talk,
+} from "@/lib/portfolio-data"
+import "./hafedh/hafedh.css"
 
+export const metadata: Metadata = {
+  title: `${profile.handle} | ${profile.name}`,
+  description: `online i go by ${profile.handle}.`,
+}
 
-export default function Portfolio() {
+function Ext({ href, children }: { href: string; children: ReactNode }) {
   return (
-    <div className="max-w-3xl mx-auto px-4 py-8">
-      {/* Resume Button at Top */}
-      <div className="flex justify-end gap-2 mb-4">
-        <a
-          href="https://docs.google.com/document/d/1tSznOs_vf2fHMkbjzVHHb7J_uYICrN_8pBIuDjmFTx0/edit?usp=sharing"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block px-4 py-2 bg-secondary text-secondary-foreground font-semibold rounded shadow hover:bg-secondary/80 transition-colors"
-        >
-          View Resume
-        </a>
-        <ModeToggle />
+    <a href={href} target="_blank" rel="noopener noreferrer">
+      {children}
+    </a>
+  )
+}
+
+function RichText({ segments }: { segments: Segment[] }) {
+  return segments.map((s, i) =>
+    s.href ? (
+      <Ext key={i} href={s.href}>
+        {s.text}
+      </Ext>
+    ) : (
+      <span key={i}>{s.text}</span>
+    ),
+  )
+}
+
+function Card({ project }: { project: Project }) {
+  return (
+    <a className="lain-card" href={project.href} target="_blank" rel="noopener noreferrer">
+      <span className="lain-card-title">
+        {project.logo ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={project.logo} alt="" width={20} height={20} />
+        ) : (
+          <span aria-hidden>{project.emoji}</span>
+        )}
+        {project.name.toLowerCase()}
+        {project.badge && <span className="lain-badge">{project.badge}</span>}
+      </span>
+      <span className="lain-card-desc">{project.description}</span>
+      {project.note && <span className="lain-card-note">* {project.note}</span>}
+    </a>
+  )
+}
+
+const RECENT_TALKS = 3
+
+function TalkList({ talks }: { talks: Talk[] }) {
+  return (
+    <ul className="lain-list">
+      {talks.map((talk) => (
+        <li key={talk.date}>
+          <span className="lain-meta">{talk.date}</span>
+          {talk.before} <Ext href={talk.event.href}>{talk.event.label}</Ext> {talk.after}
+          {talk.slides && (
+            <>
+              {" "}[<Ext href={talk.slides}>slides</Ext>]
+            </>
+          )}
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+export default function LainPage() {
+  return (
+    <FxRoot className={`lain ${mono.className} ${vt.variable}`}>
+      <Boot />
+      <div className="lain-page">
+        <nav className="lain-topbar">
+          <div className="lain-breadcrumb">
+            <span className="here">home</span>
+          </div>
+          <a className="lain-square" href={profile.resume} target="_blank" rel="noopener noreferrer">
+            resume
+          </a>
+          <Terminal />
+          <FxToggle />
+          <ModeToggle className="lain-toggle" />
+        </nav>
+
+        <header className="lain-profile">
+          <div className="lain-banner" aria-hidden>
+            <span className="lain-banner-jp">レイン ワイヤード</span>
+            <span className="lain-banner-line">
+              <Scramble text="present day, present time." />
+            </span>
+          </div>
+          <div className="lain-profile-info">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img className="lain-avatar" src={profile.avatar} alt={profile.name} width={80} height={80} />
+            <div>
+              <h1 className="lain-name glitch" data-text={profile.name.toLowerCase()}>
+                <Scramble text={profile.name.toLowerCase()} />
+              </h1>
+              <p className="lain-tagline">online i go by {profile.handle}.</p>
+            </div>
+          </div>
+          <div className="lain-socials">
+            {profile.socials.map((social, i) => (
+              <span key={social.label}>
+                {i > 0 && <span className="sep">·</span>}
+                <Ext href={social.href}>{social.label.toLowerCase()}</Ext>
+              </span>
+            ))}
+          </div>
+        </header>
+
+        <StatusPanel since={profile.wiredSince} plan={now[0].items[0].toLowerCase()} />
+
+        <main>
+          <section>
+            {intro.map((paragraph, i) => (
+              <p key={i}>
+                <RichText segments={paragraph} />
+              </p>
+            ))}
+          </section>
+
+          <section id="blogs">
+            <h2>
+              <span className="glitch" data-text="blogs">blogs</span>
+            </h2>
+            <p>
+              <RichText segments={blogsIntro} />
+            </p>
+            <ul className="lain-list">
+              {blogs.map((blog) => (
+                <li key={blog.href}>
+                  <Ext href={blog.href}>{blog.title}</Ext>
+                  <span className="lain-meta">{blog.description}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section id="open-source">
+            <h2>
+              <span className="glitch" data-text="open source">open source</span>
+            </h2>
+            {projectGroups.map((group, i) => (
+              <details key={group.id} className="lain-folder" open={i === 0}>
+                <summary>
+                  {i === 0 ? "contributions" : group.title}
+                  <span className="lain-folder-count">[{group.projects.length}]</span>
+                </summary>
+                <p>{group.intro}</p>
+                <div className="lain-grid">
+                  {group.projects.map((project) => (
+                    <Card key={project.href} project={project} />
+                  ))}
+                </div>
+              </details>
+            ))}
+          </section>
+
+          <section id="now">
+            <h2>
+              <span className="glitch" data-text="now">now</span>
+            </h2>
+            <div className="lain-now-grid">
+              {now.map((s, i) => (
+                <div key={i}>
+                  <h3>{s.category}</h3>
+                  <ul className="lain-list">
+                    {s.items.map((item, j) => (
+                      <li key={j}><span className="lain-meta">{item}</span></li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section id="talks">
+            <h2>
+              <span className="glitch" data-text="talks & news">talks &amp; news</span>
+            </h2>
+            <TalkList talks={talks.slice(0, RECENT_TALKS)} />
+            {talks.length > RECENT_TALKS && (
+              <details className="lain-folder">
+                <summary>
+                  older
+                  <span className="lain-folder-count">[{talks.length - RECENT_TALKS}]</span>
+                </summary>
+                <TalkList talks={talks.slice(RECENT_TALKS)} />
+              </details>
+            )}
+          </section>
+
+          <section id="buttons">
+            <h2>
+              <span className="glitch" data-text="buttons">buttons</span>
+            </h2>
+            <p>link back to me with the button on the left, or check out some of these.</p>
+            <ButtonWall />
+          </section>
+        </main>
+
+        <footer className="lain-footer">
+          <span>
+            © {new Date().getFullYear()} {profile.name.toLowerCase()} · build {new Date().toISOString().slice(0, 10)}
+          </span>
+          <span>press / for a shell</span>
+          <span className="cursor">let&apos;s all love lain.</span>
+        </footer>
       </div>
-      {/* Header Section */}
-      <header className="text-center mb-8">
-        <h1 className="text-3xl font-bold mb-1">Hafedh Hichri</h1>
-
-        {/* Profile Image */}
-        <div className="relative w-40 h-40 mx-auto mb-6 rounded-full overflow-hidden border-4 border-border">
-          <Image
-            src="/hafedh.jpg?height=160&width=160"
-            alt="Profile Photo"
-            width={160}
-            height={160}
-            className="object-cover"
-            priority
-          />
-        </div>
-
-        {/* Social Links */}
-        <div className="flex justify-center gap-3 mb-4">
-          <Link
-            href="https://x.com/not_so_lain"
-            className="p-2 bg-secondary text-secondary-foreground rounded-full hover:bg-secondary/80 transition-colors"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <SiX size={20} />
-            <span className="sr-only">Twitter</span>
-          </Link>
-          <Link
-            href="https://huggingface.co/not-lain"
-            className="p-2 bg-secondary text-secondary-foreground rounded-full hover:bg-secondary/80 transition-colors"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <SiHuggingface size={20} />
-            <span className="sr-only">HuggingFace</span>
-          </Link>
-          <Link
-            href="https://github.com/not-lain"
-            className="p-2 bg-secondary text-secondary-foreground rounded-full hover:bg-secondary/80 transition-colors"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <SiGithub size={20} />
-            <span className="sr-only">GitHub</span>
-          </Link>
-          <Link
-            href="https://www.linkedin.com/in/hafedh-hichri/"
-            className="p-2 bg-secondary text-secondary-foreground rounded-full hover:bg-secondary/80 transition-colors"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <SiLinkedin size={20} />
-            <span className="sr-only">LinkedIn</span>
-          </Link>
-          <Link
-            href="mailto:lain.hichri@gmail.com"
-            className="p-2 bg-secondary text-secondary-foreground rounded-full hover:bg-secondary/80 transition-colors"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <SiMailboxdotorg size={20} />
-            <span className="sr-only">Email</span>
-          </Link>
-        </div>
-      </header>
-
-      {/* Introduction Section */}
-      <section className="mb-12">
-        <p className="mb-4">
-          Hafedh Hichri, also known online as{" "}
-          <Link
-            href="https://github.com/not-lain"
-            className="text-blue-500 hover:text-blue-400 hover:underline"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            not-lain
-          </Link>
-          , is a Software Engineer at{" "}
-          <Link
-            href="https://usefeyn.com/"
-            className="text-blue-500 hover:text-blue-400 hover:underline"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Feyn
-          </Link>{" "}
-          (previously called Chonkie) and a{" "}
-          <Link
-            href="https://huggingface.co/hugging-fellows"
-            className="text-blue-500 hover:text-blue-400 hover:underline"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Hugging Face Fellow
-          </Link>
-        </p>
-
-        <p className="mb-4">
-          He is passionate about making AI accessible through
-          open-source contributions to libraries like transformers,
-          unsloth, peft, .... He studied Computer Science at the{" "}
-          <Link
-            href="https://enetcom.rnu.tn/en"
-            className="text-blue-500 hover:text-blue-400 hover:underline"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            National School of Electronics and Telecommunications of Sfax
-            (ENET'Com)
-          </Link>
-          .
-        </p>
-
-        <hr className="my-8 border-gray-200" />
-      </section>
-
-      {/* Blog Section */}
-      <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">Blogs</h2>
-
-        <p className="mb-4">
-          I write about machine learning, natural language processing, and
-          open-source software mostly in{" "}
-          <Link
-            href="https://huggingface.co/not-lain/activity/articles"
-            className="text-blue-500 hover:text-blue-400 hover:underline"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            HuggingFace
-          </Link>
-          . Here are some of my recent blog posts:
-        </p>
-
-        <ul className="list-disc pl-6 space-y-4">
-          <li>
-            👁️{" "}
-            <Link
-              href="https://huggingface.co/blog/not-lain/vlms"
-              className="text-blue-500 hover:text-blue-400 hover:underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-             Visualizing How VLMs Work
-            </Link>{" "}
-            A deep dive into how VLMs aggregate and process data across modalities, co-authored with Ed Daniels.
-          </li>
-          <li>
-            🔭{" "}
-            <Link
-              href="https://huggingface.co/blog/not-lain/kv-caching"
-              className="text-blue-500 hover:text-blue-400 hover:underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              KV Caching Explained: Optimizing Transformer Inference Efficiency
-            </Link>{" "}
-            A deep dive into the concept of KV caching in transformers,
-            explaining its significance and providing practical examples.
-          </li>
-          <li>
-            🔍{" "}
-            <Link
-              href="https://huggingface.co/blog/not-lain/tensor-dims"
-              className="text-blue-500 hover:text-blue-400 hover:underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Mastering Tensor Dimensions in Transformers
-            </Link>{" "}
-            A comprehensive guide to understanding tensor dimensions in
-            transformers, with practical examples and tips for effective
-            manipulation.
-          </li>
-          <li>
-            🚀{" "}
-            <Link
-              href="https://huggingface.co/blog/not-lain/building-hf-integrated-libraries"
-              className="text-blue-500 hover:text-blue-400 hover:underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              PyTorchModelHubMixin: Bridging the Gap for Custom AI Models on
-              Hugging Face
-            </Link>{" "}
-            A detailed exploration of the PyTorchModelHubMixin class, showcasing
-            its role in integrating custom AI models with the Hugging Face
-            ecosystem.
-          </li>
-          <li>
-            🧠{" "}
-            <Link
-              href="https://huggingface.co/blog/not-lain/rag-chatbot-using-llama3"
-              className="text-blue-500 hover:text-blue-400 hover:underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              RAG using huggingface tools
-            </Link>{" "}
-            A step-by-step guide to building a Retrieval-Augmented Generation
-            (RAG) chatbot using Hugging Face tools, with practical examples and
-            code snippets.
-          </li>
-          <li>
-            🚀{" "}
-            <Link
-              href="https://huggingface.co/blog/not-lain/image-retriever"
-              className="text-blue-500 hover:text-blue-400 hover:underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Image-based search engine
-            </Link>{" "}
-            A tutorial on creating an image-based search engine using Hugging
-            Face tools, with practical examples and code snippets.
-          </li>
-        </ul>
-      </section>
-
-      {/* Open Source Section */}
-      <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">Open Source</h2>
-
-        <p className="mb-4">
-          Most of my work comes in this field the form of contributions to other
-          libraries. A couple of notable libraries I contributed to are:
-        </p>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-          {/* Card: Transformers */}
-          <a
-            href="https://github.com/huggingface/transformers/issues?q=sort%3Aupdated-desc%20is%3Amerged%20is%3Apr%20author%3Anot-lain%20"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block bg-card text-card-foreground rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-border"
-          >
-            <div className="font-bold text-lg mb-1">🤗 Transformers</div>
-            <div className="text-muted-foreground text-sm">
-              State-of-the-art AI library by Hugging Face.
-            </div>
-          </a>
-          {/* Card: Unsloth */}
-          <a
-            href="https://github.com/unslothai/unsloth/issues?q=sort%3Aupdated-desc%20is%3Amerged%20is%3Apr%20author%3Anot-lain"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block bg-card text-card-foreground rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-border"
-          >
-            <div className="font-bold text-lg mb-1">🦥 Unsloth</div>
-            <div className="text-muted-foreground text-sm">
-              Efficient fine-tuning for LLMs.
-            </div>
-          </a>
-          {/* Card: PEFT */}
-          <a
-            href="https://github.com/huggingface/peft/issues?q=sort%3Aupdated-desc%20is%3Amerged%20is%3Apr%20author%3Anot-lain"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block bg-card text-card-foreground rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-border"
-          >
-            <div className="font-bold text-lg mb-1">🤗 PEFT</div>
-            <div className="text-muted-foreground text-sm">
-              Parameter-Efficient Fine-Tuning methods for large models by Hugging
-              Face.
-            </div>
-          </a>
-          {/* Card: Gradio */}
-          <a
-            href="https://github.com/gradio-app/gradio/issues?q=sort%3Aupdated-desc%20is%3Amerged%20is%3Apr%20author%3Anot-lain%20"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block bg-card text-card-foreground rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-border"
-          >
-            <div className="flex items-center mb-1 font-bold text-lg">
-              <Image
-                src="https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/gradio-color.png"
-                alt="Gradio Logo"
-                width={24}
-                height={24}
-                className="object-contain mr-2 inline-block"
-                priority
-              />{" "}
-              Gradio
-            </div>
-            <div className="text-muted-foreground text-sm">
-              Python Library for building machine learning web-applications.
-            </div>
-          </a>
-          {/* Card: Chonkie */}
-          <a
-            href="https://github.com/chonkie-inc/chonkie/issues?q=sort%3Aupdated-desc%20is%3Amerged%20is%3Apr%20author%3Anot-lain"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block bg-card text-card-foreground rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-border"
-          >
-            <div className="flex items-center mb-1 font-bold text-lg">
-              <Image
-                src="https://avatars.githubusercontent.com/u/205278415?s=200&v=4"
-                alt="Chonkie Logo"
-                width={24}
-                height={24}
-                className="object-contain mr-2 inline-block"
-                priority
-              />{" "}
-              Chonkie{" "}
-              <span className="ml-1 text-xs text-muted-foreground">[maintainer]</span>
-            </div>
-            <div className="text-muted-foreground text-sm">
-              AI library for efficient data chunking and building RAG pipelines.
-            </div>
-            <div className="text-muted-foreground text-xs mt-1">
-              <strong>Note:</strong> Currently working at this company and
-              serving as their maintainer.
-            </div>
-          </a>
-          {/* Card: HuggingFace.js */}
-          <a
-            href="https://github.com/huggingface/huggingface.js/issues?q=sort%3Aupdated-desc%20is%3Amerged%20is%3Apr%20author%3Anot-lain"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block bg-card text-card-foreground rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-border"
-          >
-            <div className="font-bold text-lg mb-1">🤗 HuggingFace.js</div>
-            <div className="text-muted-foreground text-sm">
-              JavaScript client for Hugging Face APIs. I contributed to API
-              features and bug fixes.
-            </div>
-          </a>
-          {/* Card: fal */}
-          <a
-            href="https://github.com/fal-ai/fal/issues?q=sort%3Aupdated-desc%20is%3Amerged%20is%3Apr%20author%3Anot-lain"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block bg-card text-card-foreground rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-border"
-          >
-            <div className="flex items-center mb-1 font-bold text-lg">
-              <Image
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRv4-JD-JVK07Rd_Nnp4l1mQf_zkHJDVtVv_Ciz0N17cjEIvn_gj42ujbvx7zocG2L1nlI&usqp=CAU"
-                alt="Fals Logo"
-                width={24}
-                height={24}
-                className="object-contain mr-2 inline-block"
-                priority
-              />{" "}
-              fal
-            </div>
-            <div className="text-muted-foreground text-sm">SDK Client for FAL</div>
-          </a>
-          {/* Card: Argilla */}
-          <a
-            href="https://github.com/argilla-io/argilla/pulls?q=is%3Amerged+is%3Apr+author%3Anot-lain"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block bg-card text-card-foreground rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-border"
-          >
-            <div className="flex items-center mb-1 font-bold text-lg">
-              <Image
-                src="https://avatars.githubusercontent.com/u/18415507?s=200&v=4"
-                alt="Argilla Logo"
-                width={24}
-                height={24}
-                className="object-contain mr-2 inline-block"
-                priority
-              />{" "}
-              Argilla
-            </div>
-            <div className="text-muted-foreground text-sm">
-              Collaboration tool for AI engineers and domain experts to build
-              high-quality datasets.
-            </div>
-          </a>
-        </div>
-        <p className="mb-4">I also maintain a couple of libraries:</p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-          {/* Card: Loadimg */}
-          <a
-            href="https://github.com/not-lain/loadimg"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block bg-card text-card-foreground rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-border"
-          >
-            <div className="flex items-center mb-1 font-bold text-lg">
-              <Image
-                src="https://github.com/not-lain/loadimg/raw/main/loadimg.png?raw=true"
-                alt="Loadimg Logo"
-                width={24}
-                height={24}
-                className="object-contain mr-2 inline-block"
-                priority
-              />{" "}
-              Loadimg
-            </div>
-            <div className="text-muted-foreground text-sm">
-              A fast, lightweight image loader for web apps. I am the creator
-              and maintainer.
-            </div>
-          </a>
-          {/* Card: Pxia */}
-          <a
-            href="https://github.com/not-lain/pxia"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block bg-card text-card-foreground rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-border"
-          >
-            <div className="flex items-center mb-1 font-bold text-lg">
-              <Image
-                src="https://github.com/not-lain/pxia/raw/main/logo.png?raw=true"
-                alt="Pxia Logo"
-                width={24}
-                height={24}
-                className="object-contain mr-2 inline-block"
-                priority
-              />{" "}
-              Pxia
-            </div>
-            <div className="text-muted-foreground text-sm">
-              A pixel manipulation library for creative coding. I am the creator
-              and maintainer.
-            </div>
-          </a>
-        </div>
-        <p className="mb-4">I also created these models at my company, Feyn:</p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-          {/* Card: FeyNoBg */}
-          <a
-            href="https://usefeyn.com/blog/feynobg"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block bg-card text-card-foreground rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-border"
-          >
-            <div className="flex items-center mb-1 font-bold text-lg">
-              <Image
-                src="https://cdn-avatars.huggingface.co/v1/production/uploads/6067760d5a275b0e26010e6b/onWKgqCJEj5cc9sZ4h9IK.png"
-                alt="Feyn Logo"
-                width={24}
-                height={24}
-                className="object-contain mr-2 inline-block"
-                priority
-              />{" "}
-              FeyNoBg
-            </div>
-            <div className="text-muted-foreground text-sm">
-              State-of-the-art background removal model that predicts per-pixel
-              alpha mattes.
-            </div>
-          </a>
-          {/* Card: MultiMatte */}
-          <a
-            href="https://usefeyn.com/blog/multimatte"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block bg-card text-card-foreground rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-border"
-          >
-            <div className="flex items-center mb-1 font-bold text-lg">
-              <Image
-                src="https://cdn-avatars.huggingface.co/v1/production/uploads/6067760d5a275b0e26010e6b/onWKgqCJEj5cc9sZ4h9IK.png"
-                alt="Feyn Logo"
-                width={24}
-                height={24}
-                className="object-contain mr-2 inline-block"
-                priority
-              />{" "}
-              MultiMatte
-            </div>
-            <div className="text-muted-foreground text-sm">
-              Text-guided background removal built on SAM 3: name the object
-              to keep and it removes everything else.
-            </div>
-          </a>
-        </div>
-        <p className="mb-4">
-          I also contributed to integrating several models with Hugging Face
-          using PyTorchModelHubMixin, including:
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-          {/* Card: BiRefNet */}
-          <a
-            href="https://huggingface.co/ZhengPeng7/BiRefNet"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block bg-card text-card-foreground rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-border"
-          >
-            <div className="flex items-center mb-1 font-bold text-lg">
-              <Image
-                src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*bNskDbetalj7HBPWuML13A.png"
-                alt="BiRefNet Logo"
-                width={24}
-                height={24}
-                className="object-contain mr-2 inline-block"
-                priority
-              />{" "}
-              BiRefNet
-            </div>
-            <div className="text-muted-foreground text-sm">
-              SOTA Background Removal model for camouflaged image segmentation
-              (chameleon, etc.).
-            </div>
-          </a>
-          {/* Card: BEN2 */}
-          <a
-            href="https://huggingface.co/PramaLLC/BEN2"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block bg-card text-card-foreground rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-border"
-          >
-            <div className="flex items-center mb-1 font-bold text-lg">
-              <Image
-                src="https://avatars.githubusercontent.com/u/157913250?v=4"
-                alt="Prama Logo"
-                width={24}
-                height={24}
-                className="object-contain mr-2 inline-block"
-                priority
-              />{" "}
-              BEN2
-            </div>
-            <div className="text-muted-foreground text-sm">
-              SOTA Background Removal model for detailed image segmentation
-              (hair strands, etc.).
-            </div>
-          </a>
-          {/* Card: MatAnyone */}
-          <a
-            href="https://huggingface.co/PeiqingYang/MatAnyone"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block bg-card text-card-foreground rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-border"
-          >
-            <div className="flex items-center mb-1 font-bold text-lg">
-              <Image
-                src="https://github.com/pq-yang/MatAnyone/raw/main/assets/matanyone_logo.png"
-                alt="MatAnyone Logo"
-                width={24}
-                height={24}
-                className="object-contain mr-2 inline-block"
-                priority
-              />{" "}
-              MatAnyone
-            </div>
-            <div className="text-muted-foreground text-sm">
-              Video propagation model for consistent object segmentation across
-              frames.
-            </div>
-          </a>
-          <a
-            href="https://huggingface.co/PeiqingYang/MatAnyone2"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block bg-card text-card-foreground rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-border"
-          >
-            <div className="flex items-center mb-1 font-bold text-lg">
-              <Image
-                src="https://github.com/pq-yang/MatAnyone2/blob/main/assets/matanyone2_logo.png?raw=true"
-                alt="MatAnyone2 Logo"
-                width={24}
-                height={24}
-                className="object-contain mr-2 inline-block"
-                priority
-              />{" "}
-              MatAnyone2
-            </div>
-            <div className="text-muted-foreground text-sm">
-              Video propagation model for consistent object segmentation across
-              frames.
-            </div>
-          </a>
-          {/* Card: anime-seg */}
-          <a
-            href="https://huggingface.co/skytnt/anime-seg"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block bg-card text-card-foreground rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-border"
-          >
-            <div className="flex items-center mb-1 font-bold text-lg">
-              <Image
-                src="https://cdn-avatars.huggingface.co/v1/production/uploads/1650375870480-noauth.png"
-                alt="AnimeSeg Logo"
-                width={24}
-                height={24}
-                className="object-contain mr-2 inline-block"
-                priority
-              />{" "}
-              anime-seg
-            </div>
-            <div className="text-muted-foreground text-sm">
-              Anime image segmentation model.
-            </div>
-          </a>
-          {/* Card: araclip */}
-          <a
-            href="https://huggingface.co/Arabic-Clip/araclip"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block bg-card text-card-foreground rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-border"
-          >
-            <div className="flex items-center mb-1 font-bold text-lg">
-              <Image
-                src="https://cdn-avatars.huggingface.co/v1/production/uploads/61934cc71832e6ac3837d8b0/f2VVUYHkDkhLQvNxSE5ra.png"
-                alt="AraClip Logo"
-                width={24}
-                height={24}
-                className="object-contain mr-2 inline-block"
-                priority
-              />{" "}
-              araclip
-            </div>
-            <div className="text-muted-foreground text-sm">
-              Arabic CLIP model for image-text tasks.
-            </div>
-          </a>
-          {/* Card: RMBG-1.4 */}
-          <a
-            href="https://huggingface.co/briaai/RMBG-1.4"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block bg-card text-card-foreground rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-border"
-          >
-            <div className="flex items-center mb-1 font-bold text-lg">
-              <Image
-                src="https://cdn-avatars.huggingface.co/v1/production/uploads/65659985cfbe8a857070d950/1HTn-HmGDwK53SSJ5dEYt.png"
-                alt="briaa Logo"
-                width={24}
-                height={24}
-                className="object-contain mr-2 inline-block"
-                priority
-              />{" "}
-              RMBG-1.4
-            </div>
-            <div className="text-muted-foreground text-sm">
-              Background removal model.
-            </div>
-          </a>
-          {/* Card: SwarmFormer */}
-          <a
-            href="https://huggingface.co/takara-ai/SwarmFormer-Sentiment-Base"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block bg-card text-card-foreground rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-border"
-          >
-            <div className="flex items-center mb-1 font-bold text-lg">
-              <Image
-                src="https://cdn-avatars.huggingface.co/v1/production/uploads/6613f7ae43c4456e13ecbdcc/CkDvoJY5UnC7SGkln8PrX.jpeg"
-                alt="Takara Logo"
-                width={24}
-                height={24}
-                className="object-contain mr-2 inline-block"
-                priority
-              />{" "}
-              SwarmFormer
-            </div>
-            <div className="text-muted-foreground text-sm">
-              Transformer variant using hierarchical local-global attention
-              reducing cost with strong accuracy.
-            </div>
-          </a>
-        </div>
-      </section>
-
-      {/* Invited Talks Section */}
-      <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">Invited Talks and News</h2>
-
-        <ul className="list-disc pl-6 space-y-2">
-          <li>
-            On <strong>September 26, 2026</strong>, I was a judge at{" "}
-            <Link
-              href="https://www.instagram.com/p/DdtRI2miJfG/?img_index=2"
-              className="text-blue-500 hover:text-blue-400 hover:underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              IndabaX Tunisia
-            </Link>{" "}
-            and gave a talk about best practices in finetuning
-            [
-            <Link
-              href="https://docs.google.com/presentation/d/10JV4uC8sfd6anTh9Vff1h4EHVf-CgNIrgzVvpWrc54g/edit?usp=sharing"
-              className="text-blue-500 hover:text-blue-400 hover:underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              slides
-            </Link>
-            ]
-          </li>
-          <li>
-            On <strong>February 19, 2026</strong>, I shared my knowledge about{" "}
-            <Link
-              href="https://www.linkedin.com/posts/qdrant_qdrant-vectorsearch-officehours-activity-7429120120742092800-HAE8/"
-              className="text-blue-500 hover:text-blue-400 hover:underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Chonkie and Qdrant integration
-            </Link>{" "}
-            in discord
-            [
-            <Link
-              href="https://not-lain.github.io/slides/"
-              className="text-blue-500 hover:text-blue-400 hover:underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              slides
-            </Link>
-            ]
-          </li>
-          <li>
-            On <strong>February 11, 2026</strong>, I was invited to {" "}
-            <Link
-              href="https://www.facebook.com/photo?fbid=1548907313904823"
-              className="text-blue-500 hover:text-blue-400 hover:underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Data & Beyond
-            </Link>{" "}
-            to talk about RAG and different approaches in the field
-            [
-            <Link
-              href="https://docs.google.com/presentation/d/1k3J7X0b9YcYiSGJVk0jogTPLlJKEIFazXvF_CLiCQJc/edit?usp=sharing"
-              className="text-blue-500 hover:text-blue-400 hover:underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              slides
-            </Link>
-            ]
-          </li>
-          <li>
-            On <strong>January 18, 2026</strong>, I gave a keynote at {" "}
-            <Link
-              href="https://www.facebook.com/photo?fbid=860170536643056"
-              className="text-blue-500 hover:text-blue-400 hover:underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Vectors in Orbit
-            </Link>{" "}
-            about Chonkie
-          </li>
-          <li>
-            On <strong>October 16, 2025</strong>, I gave a speech at{" "}
-            <Link
-              href="https://www.meetup.com/pydata-milton-keynes/events/311025969/?eventOrigin=group_upcoming_events"
-              className="text-blue-500 hover:text-blue-400 hover:underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              PyData
-            </Link>{" "}
-            about AI agents
-            [
-            <Link
-              href="https://docs.google.com/presentation/d/1CPcJgpyd5A3eh2ZIq9zecsBH2D1DshOxK1uEHt-Bg-U/edit?usp=sharing"
-              className="text-blue-500 hover:text-blue-400 hover:underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              slides
-            </Link>
-            ]
-          </li>
-          <li>
-            On <strong>October 9th, 2025</strong>, I gave a talk at the{" "}
-            <Link
-              href="https://www.linkedin.com/posts/ed-daniels-339a811a3_computer-vision-hangout-were-back-activity-7381287630178795520-2FOM"
-              className="text-blue-500 hover:text-blue-400 hover:underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Hugging Face server
-            </Link>{" "}
-            about Building how VLMs work [
-            <Link
-              href="https://docs.google.com/presentation/d/1h7x4EoX5h15DWKItsycqH-rJ6c020bEGzlhlKz8EAWU/edit?usp=sharing"
-              className="text-blue-500 hover:text-blue-400 hover:underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              slides
-            </Link>
-            ].
-          </li>
-          <li>
-            On <strong>June 13 to 15 2025</strong>, I was one of the judges at{" "}
-            <Link
-              href="https://www.linkedin.com/posts/artificial-intelligence-national-summit_ains2025-ai-rag-activity-7338626090820694016--kys?utm_source=share&utm_medium=member_desktop&rcm=ACoAADHJ074BHxxPkGGXTCvene-FdU4B_MJqkMo"
-              className="text-blue-500 hover:text-blue-400 hover:underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Artificial Intelligence National Summit V3
-            </Link>{" "}
-            and I gave a talk about Chonkie [
-            <Link
-              href="https://docs.google.com/presentation/d/1JplGOs5nSOgI672BwNUM7xdhPVis9FQBKgkiHyrKzIA/edit?usp=sharing"
-              className="text-blue-500 hover:text-blue-400 hover:underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              slides
-            </Link>
-            ].
-          </li>
-          <li>
-            On <strong>April 27, 2025</strong>, I gave a talk at the{" "}
-            <Link
-              href="https://www.facebook.com/Genesis.Labs.INSAT/posts/pfbid02jgFpxEYXZEh8JXERJEcwwpPhGjuNTKh4yERdaP52yGdncfa1Uj5KpfUoKzixPAarl"
-              className="text-blue-500 hover:text-blue-400 hover:underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Genesis Labs-INSAT
-            </Link>{" "}
-            about AI in Healthcare [
-            <Link
-              href="https://docs.google.com/presentation/d/19xWdNUaIgb3jlXOJRzY5Z7bpbk8HyckFpyfAsi4ceRU/edit?usp=sharing"
-              className="text-blue-500 hover:text-blue-400 hover:underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              slides
-            </Link>
-            ].
-          </li>
-        </ul>
-      </section>
-
-      {/* Footer */}
-      <footer className="text-center text-muted-foreground text-sm">
-        <p>© {new Date().getFullYear()} - Hafedh Hichri</p>
-      </footer>
-    </div>
-  );
+    </FxRoot>
+  )
 }

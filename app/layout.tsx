@@ -8,13 +8,18 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://not-lain.github.io"),
-  title: "Portfolio | Hafedh Hichri",
+  title: {
+    default: "Portfolio | Hafedh Hichri",
+    template: "%s",
+  },
   description: "Personal portfolio website for Hafedh Hichri",
-  generator: "v0.dev",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
       { url: "/favicon.png", type: "image/png" },
+    ],
+    apple: [
+      { url: "/lain-icon.png", sizes: "180x180", type: "image/png" },
     ],
   },
   openGraph: {
@@ -25,18 +30,18 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/hafedh.jpg",
-        width: 1200,
-        height: 1200,
+        width: 651,
+        height: 660,
         alt: "Portfolio | Hafedh Hichri",
       },
     ],
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: "Portfolio | Hafedh Hichri",
     description: "Personal portfolio website for Hafedh Hichri",
     images: ["/hafedh.jpg"],
-    creator: "@hafedhhichri",
+    creator: "@not_so_lain",
   },
 }
 
@@ -59,8 +64,7 @@ export default function RootLayout({
       <body className={inter.className} suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme="dark"
           disableTransitionOnChange
         >
           {children}
