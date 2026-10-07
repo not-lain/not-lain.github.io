@@ -47,7 +47,7 @@ export const profile = {
   // Y2K, used as the "wired since" counter on the lain page (/)
   wiredSince: "2000-01-01T00:00:00Z",
   resume:
-    "https://docs.google.com/document/d/1tSznOs_vf2fHMkbjzVHHb7J_uYICrN_8pBIuDjmFTx0/edit?usp=sharing",
+    "https://drive.google.com/file/d/1Z81kZeKCO6E4ZN3i4wiweN-G9bnJlnzJ/view",
   socials: [
     { label: "Twitter", href: "https://x.com/not_so_lain", icon: "x" },
     { label: "Instagram", href: "https://www.instagram.com/not_so_lain/", icon: "instagram" },
