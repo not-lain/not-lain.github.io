@@ -3,7 +3,7 @@
 
 export type Segment = { text: string; href?: string }
 
-export type SocialIcon = "x" | "huggingface" | "github" | "linkedin" | "email"
+export type SocialIcon = "x" | "instagram" | "huggingface" | "github" | "linkedin" | "email"
 
 export type Social = { label: string; href: string; icon: SocialIcon }
 
@@ -50,6 +50,7 @@ export const profile = {
     "https://docs.google.com/document/d/1tSznOs_vf2fHMkbjzVHHb7J_uYICrN_8pBIuDjmFTx0/edit?usp=sharing",
   socials: [
     { label: "Twitter", href: "https://x.com/not_so_lain", icon: "x" },
+    { label: "Instagram", href: "https://www.instagram.com/not_so_lain/", icon: "instagram" },
     { label: "HuggingFace", href: "https://huggingface.co/not-lain", icon: "huggingface" },
     { label: "GitHub", href: "https://github.com/not-lain", icon: "github" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/hafedh-hichri/", icon: "linkedin" },

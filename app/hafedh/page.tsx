@@ -3,9 +3,10 @@ import Link from "next/link"
 import {
   SiHuggingface,
   SiX,
+  SiInstagram,
   SiGithub,
   SiLinkedin,
-  SiMailboxdotorg,
+  SiGmail,
 } from "react-icons/si"
 import { ModeToggle } from "@/components/mode-toggle"
 import {
@@ -42,10 +43,11 @@ function RichText({ segments }: { segments: Segment[] }) {
 function Portfolio() {
   const socialIcons = {
     x: SiX,
+    instagram: SiInstagram,
     huggingface: SiHuggingface,
     github: SiGithub,
     linkedin: SiLinkedin,
-    email: SiMailboxdotorg,
+    email: SiGmail,
   }
 
   return (

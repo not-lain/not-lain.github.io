@@ -45,7 +45,7 @@ export function ModeToggle({ className }: { className?: string }) {
               alt=""
               className="mr-2 h-4 w-4 rounded-sm"
             />
-            {onHafedh ? "Lain site" : "Classic site"}
+            {onHafedh ? "Lain" : "Not Lain"}
           </Link>
         </DropdownMenuItem>
       </DropdownMenuContent>

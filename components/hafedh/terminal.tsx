@@ -19,7 +19,7 @@ const HELP = [
   "whoami               who is on the other side",
   "ls                   list sections",
   "cd <section>         jump to a section",
-  "open <link>          github | hf | x | linkedin | email | resume",
+  "open <link>          github | hf | x | instagram | linkedin | email | resume",
   "blogs | projects     list writing / open source",
   "theme <light|dark>   switch theme",
   "fx <on|off>          visual effects",
