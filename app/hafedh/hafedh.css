@@ -1,7 +1,8 @@
 /* "lain" theme: monochrome brutalism after https://minha.sh, broken up by
    glitchcore effects. The only colour on the page is the red/cyan RGB split
    of a glitch. Everything is scoped under .lain; effects only run when
-   [data-fx="on"]. */
+   [data-fx="on"], which also swaps the palette to green phosphor (after the
+   serial experiments lain key art). */
 
 .lain {
   --l-light: #fff;
@@ -27,6 +28,62 @@ html.dark .lain {
   --l-darkgray: #ddd;
   --l-gray: #888;
   --l-lightgray: #222;
+}
+
+/* fx: green phosphor. Same roles as above, so every rule picks it up. */
+.lain {
+  /* base filter for photos; fx tints them green */
+  --l-img: grayscale(1) contrast(1.15);
+}
+
+.lain[data-fx="on"] {
+  --l-light: #e8f5e4;
+  --l-dark: #063b12;
+  --l-darkgray: #0d4f1c;
+  --l-gray: #4d8a58;
+  --l-lightgray: #cde6c7;
+  --l-pink: #7dd400;
+  --l-cyan: #00b86b;
+  --l-img: grayscale(1) sepia(1) hue-rotate(60deg) saturate(2.5) brightness(0.85) contrast(1.2);
+  --l-glow: transparent;
+
+  /* faint wireframe grid behind everything */
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--l-dark) 7%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--l-dark) 7%, transparent) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+html.dark .lain[data-fx="on"] {
+  --l-light: #020b04;
+  --l-dark: #3dff5c;
+  --l-darkgray: #2fd94a;
+  --l-gray: #1f8f36;
+  --l-lightgray: #0b2b13;
+  --l-pink: #c8ff3d;
+  --l-cyan: #00ffa2;
+  --l-img: grayscale(1) sepia(1) hue-rotate(65deg) saturate(4) contrast(1.15);
+  --l-glow: color-mix(in srgb, var(--l-dark) 45%, transparent);
+
+  text-shadow: 0 0 6px var(--l-glow);
+}
+
+.lain[data-fx="on"] h1,
+.lain[data-fx="on"] h2,
+.lain[data-fx="on"] .lain-readout {
+  text-shadow: 0 0 10px var(--l-glow), 0 0 2px var(--l-glow);
+}
+
+.lain[data-fx="on"] .lain-win {
+  box-shadow: 5px 5px 0 0 var(--l-dark), 0 0 18px -4px var(--l-glow);
+}
+
+.lain[data-fx="on"] .lain-card-title img {
+  filter: var(--l-img);
+}
+
+html.dark .lain[data-fx="on"] .lain-banner-jp {
+  color: #0f3f1b;
 }
 
 .lain :focus-visible {
@@ -245,7 +302,7 @@ html.dark .lain-banner-jp {
   outline: 2px solid var(--l-dark);
   object-fit: cover;
   background: var(--l-light);
-  filter: grayscale(1) contrast(1.15);
+  filter: var(--l-img);
 }
 
 .lain[data-fx="on"] .lain-avatar:hover {
@@ -255,15 +312,15 @@ html.dark .lain-banner-jp {
 @keyframes lain-tear {
   0%,
   100% {
-    filter: grayscale(1) contrast(1.15) drop-shadow(-3px 0 var(--l-pink)) drop-shadow(3px 0 var(--l-cyan));
+    filter: var(--l-img) drop-shadow(-3px 0 var(--l-pink)) drop-shadow(3px 0 var(--l-cyan));
     clip-path: inset(0);
   }
   33% {
-    filter: grayscale(1) contrast(1.6) drop-shadow(3px 0 var(--l-pink)) drop-shadow(-3px 0 var(--l-cyan));
+    filter: var(--l-img) contrast(1.4) drop-shadow(3px 0 var(--l-pink)) drop-shadow(-3px 0 var(--l-cyan));
     clip-path: polygon(0 0, 100% 0, 100% 40%, 92% 40%, 92% 55%, 100% 55%, 100% 100%, 0 100%, 0 70%, 8% 70%, 8% 60%, 0 60%);
   }
   66% {
-    filter: grayscale(1) invert(1);
+    filter: var(--l-img) invert(1);
     clip-path: inset(0);
   }
 }
@@ -862,11 +919,11 @@ html.dark .lain-banner-jp {
   flex-direction: column;
   justify-content: center;
   padding: 0 max(1rem, calc(50vw - 340px));
-  background: #000;
-  color: #fff;
+  background: #020b04;
+  color: #3dff5c;
   font-family: var(--font-vt), monospace;
   font-size: 1.4rem;
-  text-shadow: -1px 0 var(--l-pink), 1px 0 var(--l-cyan);
+  text-shadow: 0 0 8px rgb(61 255 92 / 0.55), -1px 0 #c8ff3d, 1px 0 #00ffa2;
   animation: lain-power-on 0.3s ease-out;
 }
 
@@ -879,7 +936,7 @@ html.dark .lain-banner-jp {
 .lain-boot-skip {
   margin-top: 2rem;
   font-size: 1rem;
-  color: #888;
+  color: #1f8f36;
   text-shadow: none;
 }
 
