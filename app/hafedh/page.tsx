@@ -184,7 +184,7 @@ function ProjectCard({ project }: { project: Project }) {
       href={project.href}
       target="_blank"
       rel="noopener noreferrer"
-      className="block bg-card text-card-foreground rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer border border-border"
+      className="block bg-card text-card-foreground rounded-lg shadow hover:shadow-lg dark:shadow-none dark:hover:border-foreground/30 dark:hover:shadow-[0_8px_24px_-6px_rgb(255_255_255/0.15)] transition p-4 cursor-pointer border border-border"
     >
       <div className="flex items-center mb-1 font-bold text-lg">
         {project.logo ? (
