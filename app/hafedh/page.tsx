@@ -20,18 +20,20 @@ import {
   type Segment,
 } from "@/lib/portfolio-data"
 
-function Ext({ href, children }: { href: string; children: React.ReactNode }) {
+const TEXT_LINK = "text-blue-600 hover:underline dark:text-blue-400"
+
+function Ext({ href, className, children }: { href: string; className?: string; children: React.ReactNode }) {
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer">
+    <a href={href} className={className} target="_blank" rel="noopener noreferrer">
       {children}
     </a>
   )
 }
 
-function RichText({ segments }: { segments: Segment[] }) {
+function RichText({ segments, linkClassName }: { segments: Segment[]; linkClassName?: string }) {
   return segments.map((s, i) =>
     s.href ? (
-      <Ext key={i} href={s.href}>
+      <Ext key={i} href={s.href} className={linkClassName}>
         {s.text}
       </Ext>
     ) : (
@@ -105,7 +107,10 @@ function Portfolio() {
       <section className="mb-12">
         {intro.map((paragraph, i) => (
           <p key={i} className={i === intro.length - 1 ? "mb-4" : ""}>
-            <RichText segments={paragraph} />
+            <RichText
+              segments={paragraph}
+              linkClassName={TEXT_LINK}
+            />
           </p>
         ))}
         <hr className="my-8 border-gray-200" />
@@ -152,12 +157,12 @@ function Portfolio() {
           {talks.map((talk) => (
             <li key={talk.date}>
               On <strong>{talk.date}</strong>, {talk.before}{" "}
-              <Ext href={talk.event.href}>{talk.event.label}</Ext>{" "}
+              <Ext href={talk.event.href} className={TEXT_LINK}>{talk.event.label}</Ext>{" "}
               {talk.after}
               {talk.slides && (
                 <>
                   {" "}
-                  [<Ext href={talk.slides}>slides</Ext>]
+                  [<Ext href={talk.slides} className={TEXT_LINK}>slides</Ext>]
                 </>
               )}
             </li>
