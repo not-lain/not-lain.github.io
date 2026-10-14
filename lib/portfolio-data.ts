@@ -64,8 +64,10 @@ export const intro: Segment[][] = [
     { text: "not-lain", href: "https://github.com/not-lain" },
     { text: " in the wired, I'm a Software Engineer at " },
     { text: "Feyn", href: "https://usefeyn.com/" },
-    { text: " (previously called Chonkie) and a " },
+    { text: " (previously called Chonkie), a " },
     { text: "Hugging Face Fellow", href: "https://huggingface.co/hugging-fellows" },
+    { text: " and a " },
+    { text: "Qdrant Star", href: "https://qdrant.tech/stars/" },
     { text: "." },
   ],
   [

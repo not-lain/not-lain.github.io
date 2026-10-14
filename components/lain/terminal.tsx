@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import { useTheme } from "next-themes"
+import { useRouter } from "next/navigation"
 import { blogs, intro, profile, projectGroups } from "@/lib/portfolio-data"
 import { useFx } from "./fx-provider"
 
@@ -76,6 +77,7 @@ function glitchBurst() {
 // Fake shell, opened with "/" or "`", closed with Esc.
 export function Terminal() {
   const { setTheme, resolvedTheme } = useTheme()
+  const router = useRouter()
   const { fx, reduced, setFx } = useFx()
   const [open, setOpen] = React.useState(false)
   const [lines, setLines] = React.useState<Line[]>(GREETING)
@@ -93,7 +95,9 @@ export function Terminal() {
 
   const hide = React.useCallback(() => {
     setOpen(false)
-    openerRef.current?.focus?.()
+    // preventScroll: refocusing the opener (the >_ button up top) would
+    // otherwise undo a `cd` scroll
+    openerRef.current?.focus?.({ preventScroll: true })
   }, [])
 
   React.useEffect(() => {
@@ -139,6 +143,11 @@ export function Terminal() {
           hide()
           return []
         }
+        // hidden: not in ls, help or tab completion, and only on an exact match
+        if (target === "hafedh") {
+          router.push("/hafedh")
+          return out("leaving the wired...")
+        }
         const id = SECTIONS.find((s) => s === target || s.startsWith(target))
         if (!id) return err(`cd: no such section: ${arg}`)
         const section = document.getElementById(id)
@@ -177,7 +186,9 @@ export function Terminal() {
         return out(...neofetch(resolvedTheme, fx))
       case "lain":
         return out("let's all love lain.")
+      // hidden: any `sudo ...` opens the video, whatever follows
       case "sudo":
+        window.open("https://www.youtube.com/watch?v=KxGRhd_iWuE", "_blank", "noopener,noreferrer")
         return err("nice try.")
       case "rm":
         if (fx) glitchBurst()

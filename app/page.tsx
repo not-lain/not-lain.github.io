@@ -1,13 +1,13 @@
 import type { Metadata } from "next"
 import type { ReactNode } from "react"
 import { ModeToggle } from "@/components/mode-toggle"
-import { Boot } from "@/components/hafedh/boot"
-import { ButtonWall } from "@/components/hafedh/button-wall"
-import { FxRoot, FxToggle } from "@/components/hafedh/fx-provider"
-import { mono, vt } from "@/components/hafedh/fonts"
-import { Scramble } from "@/components/hafedh/scramble"
-import { StatusPanel } from "@/components/hafedh/status-panel"
-import { Terminal } from "@/components/hafedh/terminal"
+import { Boot } from "@/components/lain/boot"
+import { ButtonWall } from "@/components/lain/button-wall"
+import { FxRoot, FxToggle } from "@/components/lain/fx-provider"
+import { mono, vt } from "@/components/lain/fonts"
+import { Scramble } from "@/components/lain/scramble"
+import { StatusPanel } from "@/components/lain/status-panel"
+import { Terminal } from "@/components/lain/terminal"
 import {
   blogs,
   blogsIntro,
@@ -19,7 +19,7 @@ import {
   type Project,
   type Segment,
 } from "@/lib/portfolio-data"
-import "./hafedh/hafedh.css"
+import "./lain.css"
 
 export const metadata: Metadata = {
   title: `${profile.handle} | ${profile.name}`,

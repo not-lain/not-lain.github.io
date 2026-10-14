@@ -1,11 +1,11 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { ModeToggle } from "@/components/mode-toggle"
-import { Button88, CopyEmbed } from "@/components/hafedh/button-wall"
-import { FxRoot, FxToggle } from "@/components/hafedh/fx-provider"
-import { mono, vt } from "@/components/hafedh/fonts"
+import { Button88, CopyEmbed } from "@/components/lain/button-wall"
+import { FxRoot, FxToggle } from "@/components/lain/fx-provider"
+import { mono, vt } from "@/components/lain/fonts"
 import { badges, badgeSnippet, myBadge, profile } from "@/lib/portfolio-data"
-import "../hafedh/hafedh.css"
+import "../lain.css"
 
 export const metadata: Metadata = {
   title: `buttons | ${profile.name}`,
