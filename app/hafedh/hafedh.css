@@ -337,6 +337,8 @@ html.dark .lain-banner-jp {
 }
 
 .lain-socials {
+  display: flex;
+  flex-wrap: wrap;
   margin: 1rem 0 0;
   font-size: 0.85rem;
 }
@@ -344,6 +346,45 @@ html.dark .lain-banner-jp {
 .lain-socials .sep {
   color: var(--l-gray);
   margin: 0 1ch;
+}
+
+/* phone/tablet: the links become a grid of square buttons */
+@media (max-width: 680px) {
+  .lain-socials {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+
+  .lain-socials .sep {
+    display: none;
+  }
+
+  .lain-socials a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.25rem;
+    border: var(--l-border) solid var(--l-dark);
+    background: var(--l-light);
+  }
+
+  .lain-socials a::before {
+    content: "> ";
+    color: var(--l-gray);
+    white-space: pre;
+  }
+
+  .lain-socials a:hover {
+    background: var(--l-dark);
+    color: var(--l-light);
+  }
+}
+
+@media (max-width: 420px) {
+  .lain-socials {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* lists */
