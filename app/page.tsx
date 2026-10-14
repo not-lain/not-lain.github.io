@@ -18,7 +18,6 @@ import {
   talks,
   type Project,
   type Segment,
-  type Talk,
 } from "@/lib/portfolio-data"
 import "./hafedh/hafedh.css"
 
@@ -66,23 +65,33 @@ function Card({ project }: { project: Project }) {
   )
 }
 
-const RECENT_TALKS = 3
-
-function TalkList({ talks }: { talks: Talk[] }) {
+// A collapsible section rendered as a file tree: the heading is the root, every
+// child is a branch joined by connector lines.
+function Tree({ id, title, count, children }: { id: string; title: string; count?: number; children: ReactNode }) {
   return (
-    <ul className="lain-list">
-      {talks.map((talk) => (
-        <li key={talk.date}>
-          <span className="lain-meta">{talk.date}</span>
-          {talk.before} <Ext href={talk.event.href}>{talk.event.label}</Ext> {talk.after}
-          {talk.slides && (
-            <>
-              {" "}[<Ext href={talk.slides}>slides</Ext>]
-            </>
-          )}
-        </li>
-      ))}
-    </ul>
+    <details id={id} className="lain-tree lain-section" open>
+      <summary>
+        <h2>
+          <span className="glitch" data-text={title}>{title}</span>
+        </h2>
+        {count !== undefined && <span className="lain-folder-count">[{count}]</span>}
+      </summary>
+      <ul className="lain-branches">{children}</ul>
+    </details>
+  )
+}
+
+function Branch({ title, count, open = true, children }: { title: string; count?: number; open?: boolean; children: ReactNode }) {
+  return (
+    <li>
+      <details className="lain-tree" open={open}>
+        <summary>
+          {title}
+          {count !== undefined && <span className="lain-folder-count">[{count}]</span>}
+        </summary>
+        <ul className="lain-branches">{children}</ul>
+      </details>
+    </li>
   )
 }
 
@@ -141,84 +150,68 @@ export default function LainPage() {
             ))}
           </section>
 
-          <section id="blogs">
-            <h2>
-              <span className="glitch" data-text="blogs">blogs</span>
-            </h2>
-            <p>
+          <Tree id="blogs" title="blogs" count={blogs.length}>
+            <li className="lain-note">
               <RichText segments={blogsIntro} />
-            </p>
-            <ul className="lain-list">
-              {blogs.map((blog) => (
-                <li key={blog.href}>
-                  <Ext href={blog.href}>{blog.title}</Ext>
-                  <span className="lain-meta">{blog.description}</span>
-                </li>
-              ))}
-            </ul>
-          </section>
-
-          <section id="open-source">
-            <h2>
-              <span className="glitch" data-text="open source">open source</span>
-            </h2>
-            {projectGroups.map((group, i) => (
-              <details key={group.id} className="lain-folder" open={i === 0}>
-                <summary>
-                  {i === 0 ? "contributions" : group.title}
-                  <span className="lain-folder-count">[{group.projects.length}]</span>
-                </summary>
-                <p>{group.intro}</p>
-                <div className="lain-grid">
-                  {group.projects.map((project) => (
-                    <Card key={project.href} project={project} />
-                  ))}
-                </div>
-              </details>
+            </li>
+            {blogs.map((blog) => (
+              <li key={blog.href}>
+                <Ext href={blog.href}>{blog.title}</Ext>
+                <span className="lain-meta">{blog.description}</span>
+              </li>
             ))}
-          </section>
+          </Tree>
 
-          <section id="now">
-            <h2>
-              <span className="glitch" data-text="now">now</span>
-            </h2>
-            <div className="lain-now-grid">
-              {now.map((s, i) => (
-                <div key={i}>
-                  <h3>{s.category}</h3>
-                  <ul className="lain-list">
-                    {s.items.map((item, j) => (
-                      <li key={j}><span className="lain-meta">{item}</span></li>
+          <Tree id="open-source" title="open source">
+            {projectGroups.map((group, i) => (
+              <Branch
+                key={group.id}
+                title={i === 0 ? "contributions" : group.title}
+                count={group.projects.length}
+                open={i === 0}
+              >
+                <li className="lain-note">
+                  {group.intro}
+                  <div className="lain-grid">
+                    {group.projects.map((project) => (
+                      <Card key={project.href} project={project} />
                     ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </section>
+                  </div>
+                </li>
+              </Branch>
+            ))}
+          </Tree>
 
-          <section id="talks">
-            <h2>
-              <span className="glitch" data-text="talks & news">talks &amp; news</span>
-            </h2>
-            <TalkList talks={talks.slice(0, RECENT_TALKS)} />
-            {talks.length > RECENT_TALKS && (
-              <details className="lain-folder">
-                <summary>
-                  older
-                  <span className="lain-folder-count">[{talks.length - RECENT_TALKS}]</span>
-                </summary>
-                <TalkList talks={talks.slice(RECENT_TALKS)} />
-              </details>
-            )}
-          </section>
+          <Tree id="now" title="now">
+            {now.map((s) => (
+              <Branch key={s.category} title={s.category}>
+                {s.items.map((item, j) => (
+                  <li key={j}><span className="lain-meta">{item}</span></li>
+                ))}
+              </Branch>
+            ))}
+          </Tree>
 
-          <section id="buttons">
-            <h2>
-              <span className="glitch" data-text="buttons">buttons</span>
-            </h2>
-            <p>link back to me with the button on the left, or check out some of these.</p>
-            <ButtonWall />
-          </section>
+          <Tree id="talks" title="talks & news" count={talks.length}>
+            {talks.map((talk) => (
+              <li key={talk.date}>
+                <span className="lain-meta">{talk.date}</span>
+                {talk.before} <Ext href={talk.event.href}>{talk.event.label}</Ext> {talk.after}
+                {talk.slides && (
+                  <>
+                    {" "}[<Ext href={talk.slides}>slides</Ext>]
+                  </>
+                )}
+              </li>
+            ))}
+          </Tree>
+
+          <Tree id="buttons" title="buttons">
+            <li className="lain-note">
+              link back to me with the button on the left, or check out some of these.
+              <ButtonWall />
+            </li>
+          </Tree>
         </main>
 
         <footer className="lain-footer">

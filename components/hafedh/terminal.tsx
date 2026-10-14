@@ -141,7 +141,9 @@ export function Terminal() {
         }
         const id = SECTIONS.find((s) => s === target || s.startsWith(target))
         if (!id) return err(`cd: no such section: ${arg}`)
-        document.getElementById(id)?.scrollIntoView({ behavior: fx ? "smooth" : "auto" })
+        const section = document.getElementById(id)
+        if (section instanceof HTMLDetailsElement) section.open = true
+        section?.scrollIntoView({ behavior: fx ? "smooth" : "auto" })
         hide()
         return out(`~/${id}`)
       }

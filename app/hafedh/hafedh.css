@@ -347,74 +347,61 @@ html.dark .lain-banner-jp {
 }
 
 /* lists */
-.lain-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.lain-list li {
-  padding-left: 2ch;
-  position: relative;
-}
-
-.lain-list li::before {
-  content: "-";
-  position: absolute;
-  left: 0;
-  color: var(--l-gray);
-}
-
 .lain-meta {
   display: block;
   color: var(--l-gray);
   font-size: 0.8rem;
 }
 
-/* collapsible folders (native <details>) */
-.lain-folder {
-  margin: 0 0 0.75rem;
+/* collapsible trees (native <details>): a section heading is the root and
+   every child hangs off it with box-drawing style connector lines */
+.lain-section {
+  margin: 2.5rem 0 0;
 }
 
-.lain-folder > summary {
+.lain-tree > summary {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   gap: 1ch;
   width: fit-content;
-  margin: 1.25rem 0 0.5rem;
   padding: 0.1rem 1ch 0.1rem 0;
   list-style: none;
   cursor: pointer;
   color: var(--l-dark);
   font-weight: 700;
-  font-size: 0.95rem;
   user-select: none;
 }
 
-.lain-folder > summary::-webkit-details-marker {
+.lain-tree > summary::-webkit-details-marker {
   display: none;
 }
 
-.lain-folder > summary::before {
-  content: "[+]";
+.lain-tree > summary::before {
+  content: "[-]";
   color: var(--l-gray);
   font-weight: 400;
 }
 
-.lain-folder[open] > summary::before {
-  content: "[-]";
+.lain-tree:not([open]) > summary::before {
+  content: "[+]";
 }
 
-.lain-folder > summary:hover {
+.lain-tree > summary h2 {
+  margin: 0;
+}
+
+.lain-tree > summary h2::before {
+  content: none;
+}
+
+.lain-tree > summary:hover,
+.lain-tree > summary:hover h2 {
   background: var(--l-dark);
   color: var(--l-light);
 }
 
-.lain-folder > summary:hover::before,
-.lain-folder > summary:hover .lain-folder-count {
+.lain-tree > summary:hover::before,
+.lain-tree > summary:hover .lain-folder-count {
   color: var(--l-light);
 }
 
@@ -424,17 +411,45 @@ html.dark .lain-banner-jp {
   font-size: 0.8rem;
 }
 
-/* "now": short lists sit side by side */
-.lain-now-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0 2rem;
+.lain-branches {
+  --l-branch-y: calc(0.35rem + 0.825em);
+  list-style: none;
+  margin: 0 0 0 1ch;
+  padding: 0;
 }
 
-@media (max-width: 600px) {
-  .lain-now-grid {
-    grid-template-columns: 1fr;
-  }
+.lain-branches > li {
+  position: relative;
+  padding: 0.35rem 0 0.35rem 3ch;
+}
+
+/* vertical trunk; the last child stops at its own elbow */
+.lain-branches > li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  border-left: var(--l-border) solid var(--l-dark);
+}
+
+.lain-branches > li:last-child::before {
+  bottom: auto;
+  height: var(--l-branch-y);
+}
+
+/* horizontal elbow */
+.lain-branches > li::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: var(--l-branch-y);
+  width: 2ch;
+  border-top: var(--l-border) solid var(--l-dark);
+}
+
+.lain-note {
+  color: var(--l-darkgray);
 }
 
 /* project cards */
