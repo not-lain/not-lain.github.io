@@ -10,6 +10,7 @@ export const SECTIONS = ["blogs", "open-source", "now", "talks", "buttons"]
 
 const LINKS: Record<string, string> = {
   ...Object.fromEntries(profile.socials.map((s) => [s.label.toLowerCase(), s.href])),
+  github: profile.socials.find((s) => s.icon === "github")!.href,
   x: profile.socials.find((s) => s.icon === "x")!.href,
   hf: profile.socials.find((s) => s.icon === "huggingface")!.href,
   resume: profile.resume,
@@ -20,7 +21,7 @@ const HELP = [
   "whoami               who is on the other side",
   "ls                   list sections",
   "cd <section>         jump to a section",
-  "open <link>          github | hf | x | instagram | linkedin | email | resume",
+  "open <link>          github personal | github work | hf | x | instagram | linkedin | email | resume",
   "blogs | projects     list writing / open source",
   "theme <light|dark>   switch theme",
   "fx <on|off>          visual effects",
